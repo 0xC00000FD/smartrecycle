@@ -1,0 +1,101 @@
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#login-grid
+{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 200px;
+    width: 300px;
+    border: 1px solid rgba(8, 212, 12, 0.4);
+    margin-top: 3vh;
+    border-radius: 10px;
+    grid-template-columns: 80px 150px;
+    grid-template-rows: auto auto auto;
+}
+
+#pass, #user
+{
+    font-size: 12px;
+    color: black;
+    margin-right: 10px;
+}
+
+#user, #type-user, #pass
+{
+    margin-bottom: 10px;
+}
+
+#type-pass, #type-user
+{
+    font-size: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+#sitename
+{
+    grid-row: 1;
+    grid-column: 1/3;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#acc
+{
+    font-size: 12px;
+    margin-top: 30px;
+    grid-row: 7;
+    grid-column: 1/3;
+    margin-left: 40px;
+}
+
+#log
+{
+    font-size: 12px;
+    margin-top: 30px;
+    grid-row: 7;
+    grid-column: 2/3;
+    margin-left: 61px;
+}
+
+#leaves
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    margin-top: 50px;
+}
+
+#W
+{
+    color: green;
+}
+
+#log:hover
+{
+    cursor: pointer;
+    color: green;
+}
+
+#user
+{
+    grid-row: 2;
+}
+
+#arrow1, #arrow2
+{
+    font-size: 10px;
+}

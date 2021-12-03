@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="open.css">
+        <link rel="icon" href="recycle.png">
+        <title> SmartRecycle </title>
+    </head>
+
+    <body>
+        <div id="top-flex">
+            <img src="recycle.png" id="icon" onclick="document.getElementById('frame').src = 'harta.html';">
+            <div id="site-name" onclick="document.getElementById('frame').src = 'harta.html';"> SmartRecycle </div>
+            <div id="dropdown">
+                <span class="material-icons-outlined" id="dropbtn"> more_vert </span>
+                <div class="dropdown-content" id="drop-content">
+                    <div id="box-profile" onclick="document.getElementById('frame').src = 'signup.html';"> 
+                        <span class="material-icons-outlined" id="icon-drop"> perm_identity </span>
+                        <a id="profile"> Profile </a>
+                    </div>
+                    <div id="box-map" onclick="document.getElementById('frame').src = 'harta.html';"> 
+                        <span class="material-icons-outlined" id="icon-drop"> map </span>
+                        <a id="map"> Map </a>
+                    </div>
+                    <div id="box-recycle" onclick="document.getElementById('frame').src = 'recycle.html';"> 
+                        <span class="material-icons-outlined" id="icon-drop"> delete </span>
+                        <a id="recycle"> Why recycle </a>
+                    </div>
+                    <div id="box-log-out"> 
+                        <span class="material-icons-outlined" id="icon-drop"> logout </span>
+                        <a id="log-out"> Log out </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <iframe src="harta.html" id="frame"> </iframe>
+
+        <script>
+            var ignoreClickOnMeElement1 = document.getElementById('dropdown');
+            document.addEventListener('click', function(event) 
+            {
+                var isClickInsideElement1 = ignoreClickOnMeElement1.contains(event.target);
+
+                if (!isClickInsideElement1) 
+                {
+                    document.getElementById("drop-content").style.display = "none";
+                }
+                else
+                {
+                    document.getElementById("drop-content").style.display = "block";
+                }
+            });
+
+            var monitor = setInterval(function()
+            {
+                var elem = document.activeElement;
+                if(elem && elem.tagName == 'IFRAME')
+                {
+                    document.getElementById("drop-content").style.display = "none";
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="signup.css">
+        <title> SmartRecycle </title>
+    </head>
+
+    <body>
+        <img src="leaves.png" id="leaves">
+        <div id="login-grid"> 
+            <div id="user"> Username </div>
+            <input type="text" placeholder="Type your username" id="type-user" autocomplete="off">
+            <div id="sitename"> Smart<a id="W">R</a>ecycle </div>
+            <div id="email"> Email </div>
+            <input type="email" placeholder="Type your email adress" id="type-email" autocomplete="off">
+            <div id="pass"> Password </div>
+            <input type="password" placeholder="Type your password" id="type-pass" autocomplete="off">
+            <div id="country"> Country </div>
+            <div id="type-country"> Select <span class="material-icons-outlined" id="arrow1"> keyboard_arrow_down </span> </div>
+            <div id="city"> City </div>
+            <div id="type-city"> Select <span class="material-icons-outlined" id="arrow2"> keyboard_arrow_down </span> </div>
+            <div id="acc"> Have an account? </div>
+            <div id="log" onclick="window.location.href='login.html';"> Sign in </div>
+        </div>
+
+        <script>
+            var ignoreClickOnMeElement1 = document.getElementById('type-country');
+            document.addEventListener('click', function(event) 
+            {
+                var isClickInsideElement1 = ignoreClickOnMeElement1.contains(event.target);
+
+                if (!isClickInsideElement1) 
+                {
+                    document.getElementById('arrow1').innerHTML = 'keyboard_arrow_down';
+
+                }
+                else
+                {
+                    document.getElementById('arrow1').innerHTML = 'keyboard_arrow_up';
+
+                }
+            });
+
+            var ignoreClickOnMeElement2 = document.getElementById('type-city');
+            document.addEventListener('click', function(event) 
+            {
+                var isClickInsideElement2 = ignoreClickOnMeElement2.contains(event.target);
+
+                if (!isClickInsideElement2) 
+                {
+                    document.getElementById('arrow2').innerHTML = 'keyboard_arrow_down';
+                }
+                else
+                {
+                    document.getElementById('arrow2').innerHTML = 'keyboard_arrow_up';
+                }
+            });
+        </script>
+    </body>
+</html>

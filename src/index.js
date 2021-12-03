@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Map from './components/map';
 import reportWebVitals from './reportWebVitals';
+import Firebase, { FirebaseContext } from './components/firebase';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <FirebaseContext.Provider value={new Firebase()}>
     <Map />
-  </React.StrictMode>,
+  </FirebaseContext.Provider>,
   document.getElementById('root')
 );
 

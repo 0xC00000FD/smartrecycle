@@ -1,0 +1,12 @@
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#top-title
+{
+    text-align: center;
+    margin-top: 50px;
+}

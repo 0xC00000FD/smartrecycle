@@ -22,6 +22,11 @@ body
     grid-template-rows: auto auto auto auto auto auto auto;
 }
 
+input:focus::placeholder
+{
+    color: transparent;
+}
+
 #email, #pass, #user, #country, #city
 {
     font-size: 12px;

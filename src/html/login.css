@@ -21,6 +21,10 @@ body
     grid-template-columns: 80px 150px;
     grid-template-rows: auto auto auto;
 }
+input:focus::placeholder
+{
+    color: transparent;
+}
 
 #pass, #user
 {

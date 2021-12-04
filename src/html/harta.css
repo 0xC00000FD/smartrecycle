@@ -12,13 +12,9 @@ body
 #report-grid
 {
     display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
     height: 270px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.9);
-    margin-top: 130px;
     grid-template-columns: 130px 270px;
     grid-template-rows: auto auto auto auto auto auto;
     box-shadow: aquamarine;
@@ -26,6 +22,13 @@ body
     transform: translate3d(50px, 50px, 0);
 }
 
+#contentContainer
+{
+    width: 2000px; 
+    height: 800px;
+    background-color: gray;
+    overflow: hidden;
+}
 #rep
 {
     text-align: center;

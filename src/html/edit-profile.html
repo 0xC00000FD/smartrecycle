@@ -13,7 +13,35 @@
 
     <body>
         <div id="grid">
-            <span class="material-icons-outlined"> highlight_off </span>
+            <span class="material-icons-outlined" id="clear" onclick="window.location.href='profile.html';"> clear </span>
+            <img src="example.jpg" id="profile-img">
+            <div id="change-img"> Change profile photo </div>
+            <div id="change-user"> New username </div>
+            <input id="type-user" type="text" placeholder="username" autocomplete="off">
+            <div id="change-email"> New email </div>
+            <input id="type-email" type="email" placeholder="email" autocomplete="off">
+            <div id="change-pass"> New password </div>
+            <input id="type-pass" type="password" placeholder="password" autocomplete="off">
+            <div id="done" onclick="window.location.href='profile.html';"> Done </div>
+
+            <span class="material-icons-outlined" id="visible" onclick="makeVisible()"> visibility_off </span>
         </div>
+
+        <script>
+            function makeVisible()
+            {
+                var x = document.getElementById("type-pass");
+                if (x.type === "password") 
+                {
+                    x.type = "text";
+                    document.getElementById("visible").innerHTML = "visibility";
+                } 
+                else 
+                {
+                    x.type = "password";
+                    document.getElementById("visible").innerHTML = "visibility_off";
+                }
+            }
+        </script>
     </body>
 </html>

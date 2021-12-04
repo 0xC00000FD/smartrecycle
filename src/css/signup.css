@@ -1,15 +1,15 @@
-.signupbody {
-    position: absolute;
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
-    background-image: url("../images/leaves.jpg");
+    background-image: url("../images/back1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 100%;
-    width: 100%;
 }
 
-#login-grid-signup
+#login-grid
 {
     display: grid;
     margin-left: auto;
@@ -26,31 +26,31 @@
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-#email-signup, #pass-signup, #user-signup, #country-signup, #city-signup
+#email, #pass, #user, #country, #city
 {
     font-size: 12px;
     color: black;
     margin-right: 10px;
 }
 
-#email-signup, #type-email-signup, #user-signup, #type-user-signup, #pass-signup, #type-pass-signup
+#email, #type-email, #user, #type-user, #pass, #type-pass
 {
     margin-bottom: 10px;
 }
 
-#city-signup, #type-city-signup
+#city, #type-city
 {
     margin-top: 10px;
 }
 
-#type-email-signup, #type-pass-singup, #type-user-signup, #type-country-signup, #type-city-signup
+#type-email, #type-pass, #type-user, #type-country, #type-city
 {
     font-size: 10px;
     padding: 5px;
     text-align: center;
 }
 
-#sitename-signup
+#sitename
 {
     grid-row: 1;
     grid-column: 1/3;
@@ -61,7 +61,7 @@
     font-size: 30px;
 }
 
-#acc-signup
+#acc
 {
     font-size: 12px;
     margin-top: 10px;
@@ -71,7 +71,7 @@
     margin-bottom: 10px;
 }
 
-#log-signup
+#log
 {
     font-size: 12px;
     margin-top: 10px;
@@ -81,7 +81,7 @@
     margin-bottom: 10px;
 }
 
-#leaves-signup
+#leaves
 {
     display: block;
     margin-left: auto;
@@ -90,33 +90,33 @@
     margin-top: 30px;
 }
 
-#W-signup
+#W
 {
-    color: green;
+    color: rgb(44, 126, 168);
 }
 
-#log-signup:hover
+#log:hover
 {
     cursor: pointer;
-    color: green;
+    color: rgb(44, 126, 168);
 }
 
-#user-signup
+#user
 {
     grid-row: 2;
 }
 
-#country-signup
+#country
 {
     grid-row: 5;
 }
 
-#city-signup
+#city
 {
     grid-row: 6;
 }
 
-#dropdown-signup, #dropdown2-signup
+#dropdown, #dropdown2
 {
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
@@ -127,23 +127,23 @@
     align-items: center;
 }
 
-#dropbtn-signup, #dropbtn2-signup
+#dropbtn, #dropbtn2
 {
     height: 18px;
     padding-top: 6px;
 }
 
-#arrow1-signup, #arrow2-signup
+#arrow1, #arrow2
 {
     font-size: 10px;
 }
 
-#dropdown-signup:hover, #dropdown2-signup:hover
+#dropdown:hover, #dropdown2:hover
 {
     cursor: pointer;
 }
 
-#next-signup
+#next
 {
     grid-row: 7;
     border: 0.1px solid rgba(0, 0, 0, 0.5);
@@ -160,26 +160,26 @@
     font-weight: bolder;
 }
 
-#next-signup:hover
+#next:hover
 {
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     color: white;
     transition-duration: 0.2s;
     cursor: pointer;
 }
 
-#dropdown-signup, #dropdown2-signup
+#dropdown, #dorpdown2
 {
     position: sticky;
     display: inline-block;
 }
 
-#dropdown-signup
+#dropdown
 {
     margin-top: 10px;
 }
 
-.dropdown-content-signup, .dropdown-content2-signup
+.dropdown-content, .dropdown-content2
 {
     display: none;
     position: absolute;
@@ -193,7 +193,7 @@
     margin-top: 1.5px;
 }
 
-.dropdown-content-signup div, .dropdown-content2-signup div
+.dropdown-content div, .dropdown-content2 div
 {
     color: black;
     text-decoration: none;
@@ -206,9 +206,9 @@
     color: grey;
 }
 
-.dropdown-content-signup div:hover, .dropdown-content2-signup div:hover
+.dropdown-content div:hover, .dropdown-content2 div:hover
 {
-    background-color: rgba(8, 212, 12, 0.1);
+    background-color: rgba(44, 126, 168, 0.1);
     cursor: pointer;
 }
 
@@ -217,12 +217,12 @@ input:focus::placeholder
     color: transparent;
 }
 
-#visible-signup:hover
+#visible:hover
 {
     cursor: pointer;
 }
 
-#visible-signup
+#visible
 {
     margin: auto auto auto auto;
     font-size: 20px;
@@ -233,7 +233,7 @@ input:focus::placeholder
     color: grey;
 }
 
-#dropbtn-signup, #dropbtn2-signup
+#dropbtn, #dropbtn2
 {
     background-color: whitesmoke;
 }

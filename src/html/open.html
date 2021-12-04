@@ -17,7 +17,7 @@
             <img src="recycle.png" id="icon" onclick="document.getElementById('frame').src = 'harta.html';">
             <div id="site-name" onclick="document.getElementById('frame').src = 'harta.html';"> SmartRecycle </div>
             <div id="dropdown">
-                <span class="material-icons-outlined" id="dropbtn"> more_vert </span>
+                <span class="material-icons-outlined" id="dropbtn"> apps </span>
                 <div class="dropdown-content" id="drop-content">
                     <div id="box-profile" onclick="document.getElementById('frame').src = 'signup.html';"> 
                         <span class="material-icons-outlined" id="icon-drop"> perm_identity </span>
@@ -29,7 +29,7 @@
                     </div>
                     <div id="box-recycle" onclick="document.getElementById('frame').src = 'recycle.html';"> 
                         <span class="material-icons-outlined" id="icon-drop"> delete </span>
-                        <a id="recycle"> Why recycle </a>
+                        <a id="recycle"> Why recycle ? </a>
                     </div>
                     <div id="box-log-out" onclick="document.getElementById('frame').src = 'signup.html';"> 
                         <span class="material-icons-outlined" id="icon-drop"> logout </span>
@@ -42,18 +42,28 @@
         <iframe src="harta.html" id="frame"> </iframe>
 
         <script>
+            var turned = 0;
+
             var ignoreClickOnMeElement1 = document.getElementById('dropdown');
             document.addEventListener('click', function(event) 
             {
                 var isClickInsideElement1 = ignoreClickOnMeElement1.contains(event.target);
 
-                if (!isClickInsideElement1) 
+                if (turned === 0)
                 {
-                    document.getElementById("drop-content").style.display = "none";
+                    if (isClickInsideElement1) 
+                    {
+                        document.getElementById("drop-content").style.display = "block";
+                        turned = 1;
+                    }
                 }
-                else
+                else if (turned === 1)
                 {
-                    document.getElementById("drop-content").style.display = "block";
+                    if (isClickInsideElement1 || !isClickInsideElement1)
+                    {
+                        document.getElementById("drop-content").style.display = "none";
+                        turned = 0;
+                    }
                 }
             });
 

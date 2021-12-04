@@ -55,7 +55,7 @@
 
 #edit-profile:hover
 {
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     cursor: pointer;
     transition-duration: 0.3s;
 }

@@ -3,7 +3,7 @@ body
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
-    background-image: url("leaves.jpg");
+    background-image: url("back1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -92,13 +92,13 @@ body
 
 #W
 {
-    color: green;
+    color: rgb(44, 126, 168);
 }
 
 #log:hover
 {
     cursor: pointer;
-    color: green;
+    color: rgb(44, 126, 168);
 }
 
 #user
@@ -162,7 +162,7 @@ body
 
 #next:hover
 {
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     color: white;
     transition-duration: 0.2s;
     cursor: pointer;
@@ -208,7 +208,7 @@ body
 
 .dropdown-content div:hover, .dropdown-content2 div:hover
 {
-    background-color: rgba(8, 212, 12, 0.1);
+    background-color: rgba(44, 126, 168, 0.1);
     cursor: pointer;
 }
 

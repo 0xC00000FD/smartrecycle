@@ -2,6 +2,7 @@ import '../../css/open.module.css';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
+import styles from '../../css/open.module.css'
 
 export default class DropDown extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class DropDown extends Component {
     }
 
     changeState = () => {
-        if(this.state.display == 'block') {
+        if(this.state.display === 'block') {
             this.setState({display: "none"});
         } else {
             this.setState({display: "block"});
@@ -31,7 +32,7 @@ export default class DropDown extends Component {
 
     render() {
         return (
-            <>
+            <div className={styles}>
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
                 <div id="dropdown">
                     <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.changeState()}> more_vert </span>
@@ -56,7 +57,7 @@ export default class DropDown extends Component {
                             </div>
                         </div>
                 </div>
-            </>
+            </div>
         );
     }
 }

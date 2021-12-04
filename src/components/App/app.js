@@ -17,7 +17,7 @@ export default class App extends Component {
         return (
             <div className={styles}>
                 <Router>
-                    <NavBar className/>
+                    <NavBar/>
 
                     <Routes>
                         <Route exact path={ROUTES.MAP} element={<Map />} />

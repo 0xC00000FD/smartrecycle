@@ -35,9 +35,10 @@ body
 
 #frame
 {
-    height: 91.5vh;
-    width: 100vw;
     border: none;
+    position: relative;
+    height: 91.8vh;
+    width: 100%;
 }
 
 #icon
@@ -65,7 +66,7 @@ body
     position: absolute;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-top: 9px;
+    margin-top: 11px;
     margin-left: -65px;
     width: 150px;
 }

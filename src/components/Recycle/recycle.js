@@ -68,8 +68,8 @@ export default class Recycle extends Component {
             <div id="recyclebody">
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-                <div id="top-title-recycle"> Why should you recycle ? </div>
-                <div id="sub-title-recycle"> click the icons to discover</div>
+                <div id="top-title-recycle"> Why should you recycle? </div>
+                <div id="sub-title-recycle"> Click the icons to discover</div>
                 <div id="frame-recycle">
                     <div id="txt1-recycle"> Volunteering can only do good for you and your community. 
                     The fact that you are actively involved in your local community and you 

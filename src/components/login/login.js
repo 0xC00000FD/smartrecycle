@@ -24,7 +24,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div id="loginbody">
+            <div className="loginbody">
                 <div id="login-grid-login"> 
                     <div id="user-login"> Username / Email</div>
                     <input type="text" placeholder="Type your username/email" id="type-user-login" autoComplete="off" />

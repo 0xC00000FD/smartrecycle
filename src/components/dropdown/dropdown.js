@@ -29,12 +29,20 @@ export default class DropDown extends Component {
         }
     }
 
+    handleClickOutside = (evt) => {
+        if(this.ref && this.ref.current.contains(evt.target)) {
+            this.setState({display: "block"});
+        } else {
+            this.setState({display: "none"});
+        }
+    }
+
     render() {
         return (
             <div>
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
                 <div id="dropdown">
-                    <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.changeState()}> more_vert </span>
+                    <span className="material-icons-outlined" id="dropbtn" ref={this.ref}> more_vert </span>
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
                             <Link to={ROUTES.PROFILE}>
                                 <div id="box-profile"> 

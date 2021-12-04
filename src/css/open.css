@@ -1,0 +1,97 @@
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#top-flex
+{
+    position: absolute;
+    z-index:1;
+    justify-content:space-between;
+    width:100%;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(8, 212, 11, 0);
+}
+
+#site-name
+{
+    font-size: 15px;
+    margin-right: 800px;
+}
+
+#dropbtn
+{
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+#site-name:hover, #dropbtn:hover, #icon:hover
+{
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+#frame
+{
+    height: 92.3vh;
+    width: 100vw;
+    border: none;
+}
+
+#icon
+{
+    height: 20px;
+    margin-right: 0.5vw;
+    margin-top: 3px;
+}
+
+#dropdown
+{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content
+{
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 8px;
+    margin-left: -65px;
+    width: 150px;
+}
+
+.dropdown-content div 
+{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#icon-drop
+{
+    font-size: 15px;
+}
+
+#icon-drop
+{
+    margin-right: 5px;
+}
+
+#profile, #map, #log-out, #recycle
+{
+    font-size: 15px;
+}
+
+#box-profile:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover
+{
+    cursor: pointer;
+    background-color: rgba(8, 212, 12, 0.1);
+}

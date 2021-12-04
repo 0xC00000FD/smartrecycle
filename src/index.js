@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Map from './components/map';
+import App from './components/App/app';
 import reportWebVitals from './reportWebVitals';
 import Firebase, { FirebaseContext } from './components/firebase';
 
 ReactDOM.render(
+<<<<<<< Updated upstream
   <FirebaseContext.Provider value={new Firebase()}>
     <Map />
   </FirebaseContext.Provider>,
+=======
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+>>>>>>> Stashed changes
   document.getElementById('root')
 );
 

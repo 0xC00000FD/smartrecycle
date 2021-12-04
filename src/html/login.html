@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="login.css">
+        <title> OurWorld </title>
+    </head>
+
+    <body>
+        <img src="leaves.png" id="leaves">
+        <div id="login-grid"> 
+            <div id="user"> Username / Email</div>
+            <input type="text" placeholder="Type your username/email" id="type-user" autocomplete="off">
+            <div id="sitename"> Smart<a id="W">R</a>ecycle </div>      
+            <div id="pass"> Password </div>
+            <input type="password" placeholder="Type your password" id="type-pass" autocomplete="off">
+            <div id="next"> Next </div>
+            <div id="acc"> Don't have an account? </div>
+            <div id="log" onclick="window.location.href='signup.html';"> Sign up </div>
+            <div id="next" onclick="window.location.href='profile.html';"> Next </div>
+            <span class="material-icons-outlined" id="visible" onclick="makeVisible()"> visibility_off </span>
+        </div>
+
+        <script>
+            function makeVisible()
+            {
+                var x = document.getElementById("type-pass");
+                if (x.type === "password") 
+                {
+                    x.type = "text";
+                    document.getElementById("visible").innerHTML = "visibility";
+                } 
+                else 
+                {
+                    x.type = "password";
+                    document.getElementById("visible").innerHTML = "visibility_off";
+                }
+            }
+        </script>
+    </body>
+</html>

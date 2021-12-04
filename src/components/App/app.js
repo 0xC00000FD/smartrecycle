@@ -7,6 +7,7 @@ import styles from '../../css/open.module.css';
 import Map from '../map';
 import { FirebaseContext } from '../firebase';
 import SignUp from '../SignUp/signup';
+import Recycle from '../recycle/recycle'
 
 export default class App extends Component {
     constructor(props){
@@ -17,11 +18,12 @@ export default class App extends Component {
         return (
             <div className={styles}>
                 <Router>
-                    <NavBar className/>
+                    <NavBar/>
 
                     <Routes>
                         <Route exact path={ROUTES.MAP} element={<Map />} />
                         <Route path={ROUTES.SIGNUP} element={<SignUp />} />
+                        <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                     </Routes>
                 </Router>
             </div>

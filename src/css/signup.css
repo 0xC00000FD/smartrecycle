@@ -1,4 +1,4 @@
-body
+.signupbody
 {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
@@ -9,7 +9,7 @@ body
     background-size: cover;
 }
 
-#login-grid
+#login-grid-signup
 {
     display: grid;
     margin-left: auto;
@@ -26,31 +26,31 @@ body
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-#email, #pass, #user, #country, #city
+#email-signup, #pass-signup, #user-signup, #country-signup, #city-signup
 {
     font-size: 12px;
     color: black;
     margin-right: 10px;
 }
 
-#email, #type-email, #user, #type-user, #pass, #type-pass
+#email-signup, #type-email-signup, #user-signup, #type-user-signup, #pass-signup, #type-pass-signup
 {
     margin-bottom: 10px;
 }
 
-#city, #type-city
+#city-signup, #type-city-signup
 {
     margin-top: 10px;
 }
 
-#type-email, #type-pass, #type-user, #type-country, #type-city
+#type-email-signup, #type-pass-signup, #type-user-signup, #type-country-signup, #type-city-signup
 {
     font-size: 10px;
     padding: 5px;
     text-align: center;
 }
 
-#sitename
+#sitename-signup
 {
     grid-row: 1;
     grid-column: 1/3;
@@ -61,7 +61,7 @@ body
     font-size: 30px;
 }
 
-#acc
+#acc-signup
 {
     font-size: 12px;
     margin-top: 10px;
@@ -71,7 +71,7 @@ body
     margin-bottom: 10px;
 }
 
-#log
+#log-signup
 {
     font-size: 12px;
     margin-top: 10px;
@@ -81,7 +81,7 @@ body
     margin-bottom: 10px;
 }
 
-#leaves
+#leaves-signup
 {
     display: block;
     margin-left: auto;
@@ -90,33 +90,33 @@ body
     margin-top: 30px;
 }
 
-#W
+#W-signup
 {
     color: rgb(44, 126, 168);
 }
 
-#log:hover
+#log-signup:hover
 {
     cursor: pointer;
     color: rgb(44, 126, 168);
 }
 
-#user
+#user-signup
 {
     grid-row: 2;
 }
 
-#country
+#country-signup
 {
     grid-row: 5;
 }
 
-#city
+#city-signup
 {
     grid-row: 6;
 }
 
-#dropdown, #dropdown2
+#dropdown-signup, #dropdown2-signup
 {
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
@@ -127,23 +127,23 @@ body
     align-items: center;
 }
 
-#dropbtn, #dropbtn2
+#dropbtn-signup, #dropbtn2-signup
 {
     height: 18px;
     padding-top: 6px;
 }
 
-#arrow1, #arrow2
+#arrow1-signup, #arrow2-signup
 {
     font-size: 10px;
 }
 
-#dropdown:hover, #dropdown2:hover
+#dropdown-signup:hover, #dropdown2-signup:hover
 {
     cursor: pointer;
 }
 
-#next
+#next-signup
 {
     grid-row: 7;
     border: 0.1px solid rgba(0, 0, 0, 0.5);
@@ -160,7 +160,7 @@ body
     font-weight: bolder;
 }
 
-#next:hover
+#next-signup:hover
 {
     background-color: rgb(44, 126, 168);
     color: white;
@@ -168,18 +168,18 @@ body
     cursor: pointer;
 }
 
-#dropdown, #dorpdown2
+#dropdown-signup, #dorpdown2-signup
 {
     position: sticky;
     display: inline-block;
 }
 
-#dropdown
+#dropdown-signup
 {
     margin-top: 10px;
 }
 
-.dropdown-content, .dropdown-content2
+.dropdown-content-signup, .dropdown-content2-signup
 {
     display: none;
     position: absolute;
@@ -193,7 +193,7 @@ body
     margin-top: 1.5px;
 }
 
-.dropdown-content div, .dropdown-content2 div
+.dropdown-content-signup div, .dropdown-content2-signup div
 {
     color: black;
     text-decoration: none;
@@ -206,7 +206,7 @@ body
     color: grey;
 }
 
-.dropdown-content div:hover, .dropdown-content2 div:hover
+.dropdown-content-signup div:hover, .dropdown-content2-signup div:hover
 {
     background-color: rgba(44, 126, 168, 0.1);
     cursor: pointer;
@@ -217,12 +217,12 @@ input:focus::placeholder
     color: transparent;
 }
 
-#visible:hover
+#visible-signup:hover
 {
     cursor: pointer;
 }
 
-#visible
+#visible-signup
 {
     margin: auto auto auto auto;
     font-size: 20px;
@@ -233,7 +233,7 @@ input:focus::placeholder
     color: grey;
 }
 
-#dropbtn, #dropbtn2
+#dropbtn-signup, #dropbtn2-signup
 {
     background-color: whitesmoke;
 }

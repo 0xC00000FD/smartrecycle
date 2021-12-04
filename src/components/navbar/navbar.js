@@ -11,9 +11,9 @@ export default class NavBar extends Component {
     render() {
         return (
             <div className={styles}>
-                <div id="top-flex">
+                <div className={styles["top-flex"]}>
                     <img src={Leaves} id="icon" alt="logo"/>
-                    <div id="site-name">SmartRecycle</div>
+                    <div className={styles["site-name"]}>SmartRecycle</div>
                     <DropDown />
                 </div>
             </div>

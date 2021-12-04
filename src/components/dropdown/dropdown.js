@@ -1,4 +1,4 @@
-import '../../css/open.module.css';
+import styles from '../../css/open.module.css';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
@@ -8,9 +8,9 @@ export default class DropDown extends Component {
         super(props);
         
         this.ref = React.createRef();
-        this.state = {
-            display: "none"
-        }
+        this.state({dropDownHidden: true});
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -21,42 +21,49 @@ export default class DropDown extends Component {
         document.removeEventListener('click', this.handleClickOutside);
     }
 
-    changeState = () => {
-        if(this.state.display == 'block') {
-            this.setState({display: "none"});
-        } else {
-            this.setState({display: "block"});
+    handleClickOutside = event => {
+        if(this.ref && !this.ref.current.contains(event.target)) {
+            this.setState({dropDownHidden: true});
         }
+    }
+    
+    handleClick = () => {
+        let value = !this.state.dropDownHidden;
+        this.setState({dropDownHidden: !value});
     }
 
     render() {
         return (
-            <>
-                <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
-                <div id="dropdown">
-                    <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.changeState()}> more_vert </span>
-                        <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
-                            <div id="box-profile"> 
+            <div className={styles}>
+            <div className={styles["dropdown"]}>
+                <span className={styles["material-icons-outlined dropbtn"]} ref={this.ref} onClick={() => this.handleClick()}> more_vert </span>
+                {
+                    !this.state.dropDownHidden && (
+                        <div className={styles["dropdown-content-drop-content"]}>
+                            <div clasaName={styles["box-profile"]}> 
                                 <Link to={ROUTES.PROFILE}>Profile</Link>
                             </div>
-                            <div id="box-map"> 
+                            <div className={styles["box-map"]}> 
                                 <Link to={ROUTES.MAP}>Map</Link>
                             </div>
-                            <div id="box-recycle"> 
+                            <div className={styles["box-recycle"]}> 
                                 <Link to={ROUTES.RECYCLE}>Why recycle?</Link>
                             </div>
-                            <div id="box-login"> 
+                            <div className={styles["box-login"]}> 
                                 <Link to={ROUTES.LOGIN}>Login</Link>
                             </div>
-                            <div id="box-signup"> 
+                            <div className={styles["box-signup"]}> 
                                 <Link to={ROUTES.SIGNUP}>Signup</Link>
                             </div>
-                            <div id="box-log-out"> 
-                                LogOut
+                            <div className={styles["box-log-out"]}> 
+                                <span className="material-icons-outlined" id="icon-drop"> logout </span>
+                                <a className={styles["log-out"]}> Log out </a>
                             </div>
                         </div>
-                </div>
-            </>
+                    )
+                }
+            </div>
+            </div>
         );
     }
 }

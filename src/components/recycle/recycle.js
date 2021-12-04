@@ -20,9 +20,9 @@ export default class Recycle extends Component {
                     <div className={styles['txt2']}> Recycling considerably reduces the need to consume natural 
                         resources, thus saving energy, neutralizing air and water pollution and 
                         also preserving limited resources.</div>
-                    <div id="txt3"> Discounts to your favorite stores around you are given to you 
+                    <div className={styles["txt3"]}> Discounts to your favorite stores around you are given to you 
                         to enjoy your favorite products at a more attractive price.</div>
-                    <div id="pic3"> <img src={banu_verde} alt="" style={{height: "200px", width: "200px"}} /></div>
+                    <div className={styles["pic3"]}> <img src={banu_verde} alt="" style={{height: "200px", width: "200px"}} /></div>
                 </div>
             </div>
         );

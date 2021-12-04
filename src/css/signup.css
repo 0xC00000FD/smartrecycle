@@ -3,6 +3,7 @@ body
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
+    background-image: url("leaves.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -18,7 +19,6 @@ body
     align-content: center;
     height: 350px;
     width: 320px;
-    border: 1px solid rgba(8, 212, 12, 0.4);
     margin-top: 100px;
     border-radius: 10px;
     grid-template-columns: 80px 150px;
@@ -43,7 +43,7 @@ body
     margin-top: 10px;
 }
 
-#type-email-signup, #type-pass-signup, #type-user-signup, #type-country-signup, #type-city-signup
+#type-email-signup, #type-pass-singup, #type-user-signup, #type-country-signup, #type-city-signup
 {
     font-size: 10px;
     padding: 5px;
@@ -116,15 +116,21 @@ body
     grid-row: 6;
 }
 
-#type-country-signup, #type-city-signup
+#dropdown-signup, #dropdown2-signup
 {
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
     font-weight: bolder;
     font-size: 10px;
-    padding: 5px;
+    height: 25px;
     text-align: center;
     align-items: center;
+}
+
+#dropbtn-signup, #dropbtn2-signup
+{
+    height: 18px;
+    padding-top: 6px;
 }
 
 #arrow1-signup, #arrow2-signup
@@ -132,7 +138,7 @@ body
     font-size: 10px;
 }
 
-#type-country-signup:hover, #type-city-signup:hover
+#dropdown-signup:hover, #dropdown2-signup:hover
 {
     cursor: pointer;
 }
@@ -156,15 +162,21 @@ body
 
 #next-signup:hover
 {
-    background-color: rgba(8, 212, 12, 0.4);
+    background-color: rgba(27, 84, 23, 0.6);
+    color: white;
     transition-duration: 0.2s;
     cursor: pointer;
 }
 
-#dropdown-signup, #dorpdown2-signup
+#dropdown-signup, #dropdown2-signup
 {
     position: sticky;
     display: inline-block;
+}
+
+#dropdown-signup
+{
+    margin-top: 10px;
 }
 
 .dropdown-content-signup, .dropdown-content2-signup
@@ -178,6 +190,7 @@ body
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100px;
+    margin-top: 1.5px;
 }
 
 .dropdown-content-signup div, .dropdown-content2-signup div
@@ -218,4 +231,9 @@ input:focus::placeholder
     margin-bottom: 6px;
     margin-left: 286px;
     color: grey;
+}
+
+#dropbtn-signup, #dropbtn2-signup
+{
+    background-color: whitesmoke;
 }

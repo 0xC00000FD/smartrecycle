@@ -3,12 +3,27 @@ body
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
+<<<<<<< Updated upstream:src/css/signup.module.css
+=======
+    background-image: url("../images/leaves.jpg");
+>>>>>>> Stashed changes:src/css/signup.css
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
+<<<<<<< Updated upstream:src/css/signup.module.css
 #login-grid
+=======
+#inline-pass-signup {
+    display: inline;
+}
+
+a#W {
+    color:rgba(27, 84, 23, 0.6);
+}
+#login-grid-signup
+>>>>>>> Stashed changes:src/css/signup.css
 {
     display: grid;
     margin-left: auto;

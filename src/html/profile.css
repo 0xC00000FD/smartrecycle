@@ -3,6 +3,10 @@ body
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
+    background-image: url("leaves.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #grid
@@ -15,6 +19,7 @@ body
     grid-template-rows: auto auto;
     align-items: center;
     margin-top: 100px;
+    color: white;
 }
 
 #profile-img
@@ -37,7 +42,7 @@ body
 
 #edit
 {
-    border: 0.1px solid rgba(0, 0, 0, 0.5);
+    border: 0.1px solid rgba(255, 255, 255, 0.5);
     padding: 5px;
     width: 150px;
     text-align: center;
@@ -50,7 +55,7 @@ body
 
 #edit:hover
 {
-    background-color: rgba(8, 212, 12, 0.4);
+    background-color: rgba(27, 84, 23, 0.6);
     cursor: pointer;
     transition-duration: 0.3s;
 }

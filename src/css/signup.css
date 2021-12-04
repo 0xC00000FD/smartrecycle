@@ -1,4 +1,5 @@
-body {
+body
+{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
@@ -8,13 +9,6 @@ body {
     background-size: cover;
 }
 
-#inline-pass-signup {
-    display: inline;
-}
-
-a#W {
-    color:rgba(27, 84, 23, 0.6);
-}
 #login-grid-signup
 {
     display: grid;
@@ -25,7 +19,6 @@ a#W {
     align-content: center;
     height: 350px;
     width: 320px;
-    border: 1px solid rgba(8, 212, 12, 0.4);
     margin-top: 100px;
     border-radius: 10px;
     grid-template-columns: 80px 150px;
@@ -33,31 +26,31 @@ a#W {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-#email, #pass, #user, #country, #city
+#email-signup, #pass-signup, #user-signup, #country-signup, #city-signup
 {
     font-size: 12px;
     color: black;
     margin-right: 10px;
 }
 
-#email, #type-email, #user, #type-user, #pass, #type-pass
+#email-signup, #type-email-signup, #user-signup, #type-user-signup, #pass-signup, #type-pass-signup
 {
     margin-bottom: 10px;
 }
 
-#city, #type-city
+#city-signup, #type-city-signup
 {
     margin-top: 10px;
 }
 
-#type-email, #type-pass, #type-user, #type-country, #type-city
+#type-email-signup, #type-pass-singup, #type-user-signup, #type-country-signup, #type-city-signup
 {
     font-size: 10px;
     padding: 5px;
     text-align: center;
 }
 
-#sitename
+#sitename-signup
 {
     grid-row: 1;
     grid-column: 1/3;
@@ -68,7 +61,7 @@ a#W {
     font-size: 30px;
 }
 
-#acc
+#acc-signup
 {
     font-size: 12px;
     margin-top: 10px;
@@ -78,7 +71,7 @@ a#W {
     margin-bottom: 10px;
 }
 
-#log
+#log-signup
 {
     font-size: 12px;
     margin-top: 10px;
@@ -88,7 +81,7 @@ a#W {
     margin-bottom: 10px;
 }
 
-#leaves
+#leaves-signup
 {
     display: block;
     margin-left: auto;
@@ -97,54 +90,60 @@ a#W {
     margin-top: 30px;
 }
 
-#W
+#W-signup
 {
     color: green;
 }
 
-#log:hover
+#log-signup:hover
 {
     cursor: pointer;
     color: green;
 }
 
-#user
+#user-signup
 {
     grid-row: 2;
 }
 
-#country
+#country-signup
 {
     grid-row: 5;
 }
 
-#city
+#city-signup
 {
     grid-row: 6;
 }
 
-#type-country, #type-city
+#dropdown-signup, #dropdown2-signup
 {
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
     font-weight: bolder;
     font-size: 10px;
-    padding: 5px;
+    height: 25px;
     text-align: center;
     align-items: center;
 }
 
-#arrow1, #arrow2
+#dropbtn-signup, #dropbtn2-signup
+{
+    height: 18px;
+    padding-top: 6px;
+}
+
+#arrow1-signup, #arrow2-signup
 {
     font-size: 10px;
 }
 
-#type-country:hover, #type-city:hover
+#dropdown-signup:hover, #dropdown2-signup:hover
 {
     cursor: pointer;
 }
 
-#next
+#next-signup
 {
     grid-row: 7;
     border: 0.1px solid rgba(0, 0, 0, 0.5);
@@ -161,20 +160,26 @@ a#W {
     font-weight: bolder;
 }
 
-#next:hover
+#next-signup:hover
 {
-    background-color: rgba(8, 212, 12, 0.4);
+    background-color: rgba(27, 84, 23, 0.6);
+    color: white;
     transition-duration: 0.2s;
     cursor: pointer;
 }
 
-#dropdown, #dorpdown2
+#dropdown-signup, #dropdown2-signup
 {
     position: sticky;
     display: inline-block;
 }
 
-.dropdown-content, .dropdown-content2
+#dropdown-signup
+{
+    margin-top: 10px;
+}
+
+.dropdown-content-signup, .dropdown-content2-signup
 {
     display: none;
     position: absolute;
@@ -185,9 +190,10 @@ a#W {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100px;
+    margin-top: 1.5px;
 }
 
-.dropdown-content div, .dropdown-content2 div
+.dropdown-content-signup div, .dropdown-content2-signup div
 {
     color: black;
     text-decoration: none;
@@ -200,7 +206,7 @@ a#W {
     color: grey;
 }
 
-.dropdown-content div:hover, .dropdown-content2 div:hover
+.dropdown-content-signup div:hover, .dropdown-content2-signup div:hover
 {
     background-color: rgba(8, 212, 12, 0.1);
     cursor: pointer;
@@ -211,12 +217,12 @@ input:focus::placeholder
     color: transparent;
 }
 
-#visible:hover
+#visible-signup:hover
 {
     cursor: pointer;
 }
 
-#visible
+#visible-signup
 {
     margin: auto auto auto auto;
     font-size: 20px;
@@ -225,4 +231,9 @@ input:focus::placeholder
     margin-bottom: 6px;
     margin-left: 286px;
     color: grey;
+}
+
+#dropbtn-signup, #dropbtn2-signup
+{
+    background-color: whitesmoke;
 }

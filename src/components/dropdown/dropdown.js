@@ -8,9 +8,9 @@ export default class DropDown extends Component {
         super(props);
         
         this.ref = React.createRef();
-        this.state({dropDownHidden: true});
-
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            display: "none"
+        }
     }
 
     componentDidMount() {
@@ -27,11 +27,6 @@ export default class DropDown extends Component {
         } else {
             this.setState({display: "block"});
         }
-    }
-    
-    handleClick = () => {
-        let value = !this.state.dropDownHidden;
-        this.setState({dropDownHidden: !value});
     }
 
     render() {

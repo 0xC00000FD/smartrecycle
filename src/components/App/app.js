@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import * as ROUTES from '../../constants/routes'
 import styles from '../../css/open.css';
 import Map from '../map';
+import Recycle from '../Recycle/recycle';
 import { FirebaseContext } from '../firebase';
 import SignUp from '../SignUp/signup';
 
@@ -21,6 +22,7 @@ export default class App extends Component {
 
                     <Routes>
                         <Route exact path={ROUTES.MAP} element={<Map />} />
+                        <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                         <Route path={ROUTES.SIGNUP} element={<SignUp />} />
                     </Routes>
                 </Router>

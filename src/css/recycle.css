@@ -1,0 +1,84 @@
+#recyclebody
+{
+    position:absolute;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("../images/leaves.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    height:100%;
+    width:100%;
+}
+
+#top-title-recycle
+{
+    color: aliceblue;
+    font-weight: bold;
+    font-size: larger;
+    text-size-adjust: 100px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#sub-title-recycle
+{
+    color: aliceblue;
+    text-size-adjust: 100px;
+    text-align: center;
+    margin-top: 20px;;
+    margin-bottom: 100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#txt1-recycle, #pic2-recycle, #txt3-recycle
+{
+    align-self: center;
+    text-align: center;
+    grid-column: 1;
+}
+
+#txt2-recycle, #pic1-recycle, #pic3-recycle
+{
+    align-self: center;
+    text-align: center;
+    grid-column: 2;
+}
+
+#txt1-recycle, #pic1-recycle
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 1;
+}
+
+#txt2-recycle, #pic2-recycle
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 2;
+}
+
+#txt2-recycle, #pic2-recycle
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 2;
+}
+
+#txt1-recycle, #txt2-recycle, #txt3-recycle
+{
+    border: 5px solid rgba(8, 212, 12, 0.4);
+    border-radius: 20px;
+    background-color: aliceblue;
+    visibility: hidden;
+}
+
+#frame-recycle
+{ 
+    font-size: smaller;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    width: 600px;
+}

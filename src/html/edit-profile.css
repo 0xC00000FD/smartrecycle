@@ -157,3 +157,19 @@ input:focus::placeholder
     transition-duration: 0.2s;
     cursor: pointer;
 }
+
+#visible:hover
+{
+    cursor: pointer;
+}
+
+#visible
+{
+    margin: auto auto auto auto;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    margin-left: 360px;
+    margin-top: 190px;
+    color: grey;
+}

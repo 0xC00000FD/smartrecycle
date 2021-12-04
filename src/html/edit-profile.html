@@ -23,6 +23,25 @@
             <div id="change-pass"> New password </div>
             <input id="type-pass" type="password" placeholder="password" autocomplete="off">
             <div id="done" onclick="window.location.href='profile.html';"> Done </div>
+
+            <span class="material-icons-outlined" id="visible" onclick="makeVisible()"> visibility_off </span>
         </div>
+
+        <script>
+            function makeVisible()
+            {
+                var x = document.getElementById("type-pass");
+                if (x.type === "password") 
+                {
+                    x.type = "text";
+                    document.getElementById("visible").innerHTML = "visibility";
+                } 
+                else 
+                {
+                    x.type = "password";
+                    document.getElementById("visible").innerHTML = "visibility_off";
+                }
+            }
+        </script>
     </body>
 </html>

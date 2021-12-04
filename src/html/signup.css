@@ -116,7 +116,7 @@ body
     grid-row: 6;
 }
 
-#type-country, #type-city
+#dropdown, #dropdown2
 {
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
@@ -132,7 +132,7 @@ body
     font-size: 10px;
 }
 
-#type-country:hover, #type-city:hover
+#dropdown:hover, #dropdown2:hover
 {
     cursor: pointer;
 }
@@ -168,6 +168,11 @@ body
     display: inline-block;
 }
 
+#dropdown
+{
+    margin-top: 10px;
+}
+
 .dropdown-content, .dropdown-content2
 {
     display: none;
@@ -179,6 +184,8 @@ body
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100px;
+    margin-top: 6px;
+    margin-left: -5.5px;
 }
 
 .dropdown-content div, .dropdown-content2 div

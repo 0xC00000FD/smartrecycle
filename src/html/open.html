@@ -42,18 +42,28 @@
         <iframe src="harta.html" id="frame"> </iframe>
 
         <script>
+            var turned = 0;
+
             var ignoreClickOnMeElement1 = document.getElementById('dropdown');
             document.addEventListener('click', function(event) 
             {
                 var isClickInsideElement1 = ignoreClickOnMeElement1.contains(event.target);
 
-                if (!isClickInsideElement1) 
+                if (turned === 0)
                 {
-                    document.getElementById("drop-content").style.display = "none";
+                    if (isClickInsideElement1) 
+                    {
+                        document.getElementById("drop-content").style.display = "block";
+                        turned = 1;
+                    }
                 }
-                else
+                else if (turned === 1)
                 {
-                    document.getElementById("drop-content").style.display = "block";
+                    if (isClickInsideElement1 || !isClickInsideElement1)
+                    {
+                        document.getElementById("drop-content").style.display = "none";
+                        turned = 0;
+                    }
                 }
             });
 

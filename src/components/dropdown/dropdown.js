@@ -9,7 +9,7 @@ export default class DropDown extends Component {
         
         this.ref = React.createRef();
         this.state = {
-            dropDownHidden: true
+            display: "none"
         }
     }
 
@@ -21,47 +21,38 @@ export default class DropDown extends Component {
         document.removeEventListener('click', this.handleClickOutside);
     }
 
-    handleClickOutside = event => {
-        if(this.ref && !this.ref.current.contains(event.target)) {
-            this.setState = {
-                dropDownHidden: true
-            }
+    changeState = () => {
+        if(this.state.display == 'block') {
+            this.setState({display: "none"});
+        } else {
+            this.setState({display: "block"});
         }
     }
 
     render() {
         return (
             <div id="dropdown">
-                <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => {
-                    console.log(1);
-                    let value = !this.state.dropDownHidden;
-                    this.setState({dropDownHidden: !value});
-                }}> more_vert </span>
-                {
-                    !this.state.dropDownHidden && (
-                        <div className="dropdown-content" id="drop-content">
-                            <div id="box-profile"> 
-                                <Link to={ROUTES.PROFILE}>Profile</Link>
-                            </div>
-                            <div id="box-map"> 
-                                <Link to={ROUTES.MAP}>Map</Link>
-                            </div>
-                            <div id="box-recycle"> 
-                                <Link to={ROUTES.RECYCLE}>Why recycle?</Link>
-                            </div>
-                            <div id="box-login"> 
-                                <Link to={ROUTES.LOGIN}>Login</Link>
-                            </div>
-                            <div id="box-signup"> 
-                                <Link to={ROUTES.SIGNUP}>Signup</Link>
-                            </div>
-                            <div id="box-log-out"> 
-                                <span className="material-icons-outlined" id="icon-drop"> logout </span>
-                                <a id="log-out"> Log out </a>
-                            </div>
+                <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.changeState()}> more_vert </span>
+                    <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
+                        <div id="box-profile"> 
+                            <Link to={ROUTES.PROFILE}>Profile</Link>
                         </div>
-                    )
-                }
+                        <div id="box-map"> 
+                            <Link to={ROUTES.MAP}>Map</Link>
+                        </div>
+                        <div id="box-recycle"> 
+                            <Link to={ROUTES.RECYCLE}>Why recycle?</Link>
+                        </div>
+                        <div id="box-login"> 
+                            <Link to={ROUTES.LOGIN}>Login</Link>
+                        </div>
+                        <div id="box-signup"> 
+                            <Link to={ROUTES.SIGNUP}>Signup</Link>
+                        </div>
+                        <div id="box-log-out"> 
+                            LogOut
+                        </div>
+                    </div>
             </div>
         );
     }

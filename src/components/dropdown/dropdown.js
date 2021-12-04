@@ -9,7 +9,8 @@ export default class DropDown extends Component {
         
         this.ref = React.createRef();
         this.state = {
-            display: "none"
+            display: "none",
+            isLogged: false
         }
     }
 
@@ -21,19 +22,33 @@ export default class DropDown extends Component {
         document.removeEventListener('click', this.handleClickOutside);
     }
 
-    changeState = () => {
-        if(this.state.display === 'block') {
-            this.setState({display: "none"});
-        } else {
-            this.setState({display: "block"});
+    isLog = () => {
+        try {
+            if(this.props.firebase.auth.currentUser !== null) {
+                return true;
+            }
+        } catch {
+            return false;
         }
     }
 
+    logOut = () => {
+        try {
+            this.props.firebase.doSignOut();
+            this.props.setState({isLogged: false});
+        } catch(err) {
+            alert(err.message);
+        }
+    }
     handleClickOutside = (evt) => {
-        if(this.ref && this.ref.current.contains(evt.target)) {
-            this.setState({display: "block"});
+        if(this.ref.current.contains(evt.target)) {
+            if(this.state.display === 'block') {
+                this.setState({display: "none", isLogged: this.isLog()});
+            } else {
+                this.setState({display: "block", isLogged: this.isLog()});
+            }
         } else {
-            this.setState({display: "none"});
+            this.setState({display: "none", isLogged: this.isLog()})
         }
     }
 
@@ -59,19 +74,30 @@ export default class DropDown extends Component {
                                     Why recycle?
                                 </div>
                             </Link>
-                            <Link to={ROUTES.LOGIN}>
-                                <div id="box-login"> 
-                                    Login
-                                </div>
-                            </Link>
-                            <Link to={ROUTES.SIGNUP}>
-                                <div id="box-signup"> 
-                                    Signup
-                                </div>
-                            </Link>
-                            <div id="box-log-out"> 
-                                LogOut
-                            </div>
+                            {
+                                !this.state.isLogged && (
+                                    <>
+                                        <Link to={ROUTES.LOGIN}>
+                                            <div id="box-login"> 
+                                                Login
+                                            </div>
+                                        </Link>
+                                        <Link to={ROUTES.SIGNUP}>
+                                            <div id="box-signup"> 
+                                                Signup
+                                            </div>
+                                        </Link>
+                                    </>
+                                )
+                            }
+                            
+                            {
+                                this.state.isLogged && (
+                                    <div id="box-log-out" onClick={() => this.logOut()}> 
+                                        Log Out
+                                    </div>
+                                )
+                            }
                         </div>
                 </div>
             </div>

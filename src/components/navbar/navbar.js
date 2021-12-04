@@ -13,7 +13,7 @@ export default class NavBar extends Component {
                 <div id="top-flex">
                     <img src={Leaves} id="icon" alt="logo"/>
                     <div id="site-name">SmartRecycle</div>
-                    <DropDown />
+                    <DropDown firebase={this.props.firebase}/>
                 </div>
             </div>
         )

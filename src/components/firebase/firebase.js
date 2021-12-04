@@ -1,11 +1,20 @@
-import firebase from 'firebase/compat/app'
-import "firebase/compat/auth"
-import "firebase/compat/database"
+import {initializeApp} from 'firebase/app'
+import { getAuth, 
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword, 
+        signOut,
+        sendPasswordResetEmail,
+        updatePassword,
+} from "firebase/auth";
+import { getDatabase,
+         ref, set, get,
+} from "firebase/database";
 
 const firebaseConfig = {
     apiKey:                 process.env.REACT_APP_API_KEY,
     authDomain:             process.env.REACT_APP_AUTH_DOMAIN,
     projectId:              process.env.REACT_APP_PROJECT_ID,
+    databaseURL:            process.env.REACT_APP_DATABASE_URL,
     storageBucket:          process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId:      process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId:                  process.env.REACT_APP_APP_ID,
@@ -14,33 +23,54 @@ const firebaseConfig = {
 
 class Firebase {
     constructor() {
-        firebase.initializeApp(firebaseConfig);
+        const app = initializeApp(firebaseConfig);
 
-        this.auth = firebase.auth();
-        this.db = firebase.database();
+        this.auth = getAuth(app);
+        this.database = getDatabase(app);
     }
 
-    test(){
-        let dbRef = this.db.ref();
-
-        dbRef.on('value', snapshot => {
-            console.log(snapshot.val());
-        })
+    doCreateUser = async (userEmail, userName, passWord) => {
+        try{
+            await createUserWithEmailAndPassword(this.auth, userEmail, passWord);
+            await this.doLogIn(userEmail, passWord);
+            
+            let user = this.auth.currentUser;
+            set(ref(this.database, "Users/"), {
+                [user.uid]: {
+                    username: userName,
+                    tokens: 0     
+                }
+            }) 
+        } catch(evt) {
+            console.log(evt.message);
+        }
     }
 
-    doCreateUser = (email, password) => {
-        this.auth.createUserWithEmailAndPassword(email, password);
+    doLogIn = async (userEmail, passWord) => {
+        try {
+            await signInWithEmailAndPassword(this.auth, userEmail, passWord);
+        } catch(error) {
+            console.log(error.message);
+        }
     }
 
-    doSignInWithEmailAndPassword = (email, password) => {
-        this.auth.signInWithEmailAndPassword(email, password);
+    doSignOut = async () => {
+        try {
+            await signOut(this.auth);
+        } catch(error) {
+            console.log(error.message);
+        }
     }
 
-    doSignOut = () => this.auth.signOut();
+    doPasswordReset = async email =>{
+        try{
+            await sendPasswordResetEmail(this.auth, email);
+        } catch(error) {
+            console.log(error.message)
+        }
+    } 
 
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-
-    doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+    doPasswordUpdate = password => updatePassword(this.auth, password);
 }
 
 export default Firebase;

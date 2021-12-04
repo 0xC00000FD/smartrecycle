@@ -26,6 +26,7 @@ export default class App extends Component {
                         <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                         <Route path={ROUTES.SIGNUP} element={<SignUp />} />
                         <Route path={ROUTES.LOGIN} element={<Login />} />
+                        <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                     </Routes>
                 </Router>
             </div>

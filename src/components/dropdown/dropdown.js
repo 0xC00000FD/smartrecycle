@@ -59,11 +59,19 @@ export default class DropDown extends Component {
                 <div id="dropdown">
                     <span className="material-icons-outlined" id="dropbtn" ref={this.ref}> more_vert </span>
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
-                            <Link to={ROUTES.PROFILE}>
-                                <div id="box-profile"> 
-                                    Profile
-                                </div>
-                            </Link>
+                            {
+                                this.isLog() && (
+                                    <div className="profile-container">
+                                        <div className="profile-pic">
+                                            <img alt=""/>
+                                        </div>
+                                        <div className="name-clouds">
+                                            <p>{this.props.firebase.auth.currentUser.displayName}</p>
+                                            <img></img>
+                                        </div>
+                                    </div>
+                                )
+                            }
                             <Link to={ROUTES.MAP}>
                                 <div id="box-map"> 
                                     Map

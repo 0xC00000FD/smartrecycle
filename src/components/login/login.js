@@ -22,11 +22,11 @@ export default class Login extends Component {
 
     }
 
-    logIn() {
+    logIn = async () => {
         let userEmail = document.getElementById('type-user-login').value;
         let userPassword = document.getElementById('type-pass-login').value;
-        this.props.firebase.doLogIn(userEmail, userPassword);
-
+        await this.props.firebase.doLogIn(userEmail, userPassword);
+    
         if(this.props.firebase.auth.currentUser !== null) {
             window.location.href = '/';
         } else {
@@ -45,7 +45,7 @@ export default class Login extends Component {
                     <input type="password" placeholder="Type your password" id="type-pass-login" autoComplete="off" />
                     <div id="next-login"> Next </div>
                     <div id="acc-login"> Don't have an account? </div>
-                    <div id="log-login"> Sign up </div>
+                    <div id="log-login" onClick={() => window.location.href="/signup"}> Sign up </div>
                     <div id="next-login" onClick={() => this.logIn()}> Next </div>
                     <span className="material-icons-outlined" id="visible-login" onClick={() => this.makeVisible()}> visibility_off </span>
                 </div>

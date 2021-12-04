@@ -1,7 +1,3 @@
-/*<div id="top-flex">
-            <img src="recycle.png" id="icon">
-            <div id="site-name"> SmartRecycle </div>
-        </div>*/
 import React, {Component} from 'react';
 import DropDown from '../dropdown/dropdown'
 import Leaves from '../../images/recycle.png'

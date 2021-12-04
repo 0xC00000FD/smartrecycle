@@ -5,6 +5,7 @@ import { getAuth,
         signOut,
         sendPasswordResetEmail,
         updatePassword,
+        updateProfile
 } from "firebase/auth";
 import { getDatabase,
          ref, set, get,
@@ -35,10 +36,13 @@ class Firebase {
             await this.doLogIn(userEmail, passWord);
             
             let user = this.auth.currentUser;
+            updateProfile(this.auth.currentUser, {
+                displayName: userName,
+            })
             set(ref(this.database, "Users/"), {
-                [user.uid]: {
-                    username: userName,
-                    tokens: 0     
+                [user.uid]: {   
+                    tokens: 0,
+                    permissions: 0    
                 }
             }) 
         } catch(evt) {

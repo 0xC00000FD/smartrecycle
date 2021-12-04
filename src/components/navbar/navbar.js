@@ -12,6 +12,7 @@ export default class NavBar extends Component {
         return (
             <div id="top-flex">
                 <img src={Leaves} id="icon" alt="logo"/>
+                <div id="site-name">SmartRecycle</div>
                 <DropDown />
             </div>
         )

@@ -8,6 +8,7 @@ import Map from '../map';
 import Recycle from '../Recycle/recycle';
 import { FirebaseContext } from '../firebase';
 import SignUp from '../SignUp/signup';
+import Login from '../login/login';
 
 export default class App extends Component {
     constructor(props){
@@ -24,6 +25,7 @@ export default class App extends Component {
                         <Route exact path={ROUTES.MAP} element={<Map />} />
                         <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                         <Route path={ROUTES.SIGNUP} element={<SignUp />} />
+                        <Route path={ROUTES.LOGIN} element={<Login />} />
                     </Routes>
                 </Router>
             </div>

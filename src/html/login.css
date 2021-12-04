@@ -19,7 +19,6 @@ body
     align-content: center;
     height: 280px;
     width: 360px;
-    border: 1px solid rgba(8, 212, 12, 0.4);
     margin-top: 130px;
     border-radius: 10px;
     grid-template-columns: 120px 150px;
@@ -130,7 +129,8 @@ input:focus::placeholder
 
 #next:hover
 {
-    background-color: rgba(8, 212, 12, 0.4);
+    background-color: rgba(27, 84, 23, 0.6);
+    color: white;
     transition-duration: 0.2s;
     cursor: pointer;
 }

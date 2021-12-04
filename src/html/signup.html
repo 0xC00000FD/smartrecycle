@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,7 +13,6 @@
     </head>
 
     <body>
-        <img src="leaves.png" id="leaves">
         <div id="login-grid"> 
             <div id="user"> Username </div>
             <input type="text" placeholder="Type your username" id="type-user" autocomplete="off">
@@ -22,14 +22,49 @@
             <div id="pass"> Password </div>
             <input type="password" placeholder="Type your password" id="type-pass" autocomplete="off">
             <div id="country"> Country </div>
-            <div id="type-country"> Select <span class="material-icons-outlined" id="arrow1"> keyboard_arrow_down </span> </div>
+                <div id="dropdown2">
+                    <div id="type-country" id="dropbtn2"> Select <span class="material-icons-outlined" id="arrow1"> keyboard_arrow_down </span> </div>
+                    <div class="dropdown-content2" id="drop-content2">
+                        <!---->
+                    </div>
+                </div>
             <div id="city"> City </div>
-            <div id="type-city"> Select <span class="material-icons-outlined" id="arrow2"> keyboard_arrow_down </span> </div>
+                <div id="dropdown">
+                    <div id="type-city" id="dropbtn"> Select <span class="material-icons-outlined" id="arrow2"> keyboard_arrow_down </span> </div>
+                    <div class="dropdown-content" id="drop-content">
+                        <!---->
+                    </div>
+                </div>
             <div id="acc"> Have an account? </div>
             <div id="log" onclick="window.location.href='login.html';"> Sign in </div>
+            <div id="next"> Next </div>
+
+            <span class="material-icons-outlined" id="visible" onclick="makeVisible()"> visibility_off </span>
         </div>
 
         <script>
+            const cityArr = ["Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brașov", 
+                            "Brăila", "București", "Buzău", "Caraș-Severin", "Călărași", "Cluj", "Constanța", 
+                            "Covasna", "Dâmbovița", "Dolj", "Galați", "Giurgiu", "Gorj", "Harghita", "Hunedoara", 
+                            "Ialomița", "Iași", "Maramureș", "Mehedinți", "Mureș", "Neamț", "Olt", "Prahova", 
+                            "Satu Mare", "Sălaj", "Sibiu", "Suceava", "Teleorman", "Timiș", "Tulcea", "Vaslui", 
+                            "Vâlcea", "Vrancea", "None"];
+            const countryArr = ["România"];
+
+            for (let i = 0; i < cityArr.length; i++)
+            {
+                var div = document.createElement("div");
+                div.innerHTML = cityArr[i];
+                document.getElementById("drop-content").appendChild(div);
+            }
+
+            for (let i = 0; i < countryArr.length; i++)
+            {
+                var div1 = document.createElement("div");
+                div1.innerHTML = countryArr[i];
+                document.getElementById("drop-content2").appendChild(div1);
+            }
+
             var ignoreClickOnMeElement1 = document.getElementById('type-country');
             document.addEventListener('click', function(event) 
             {
@@ -38,12 +73,13 @@
                 if (!isClickInsideElement1) 
                 {
                     document.getElementById('arrow1').innerHTML = 'keyboard_arrow_down';
+                    document.getElementById("drop-content2").style.display = "none";
 
                 }
                 else
                 {
                     document.getElementById('arrow1').innerHTML = 'keyboard_arrow_up';
-
+                    document.getElementById("drop-content2").style.display = "block";
                 }
             });
 
@@ -55,12 +91,47 @@
                 if (!isClickInsideElement2) 
                 {
                     document.getElementById('arrow2').innerHTML = 'keyboard_arrow_down';
+                    document.getElementById("drop-content").style.display = "none";
                 }
                 else
                 {
                     document.getElementById('arrow2').innerHTML = 'keyboard_arrow_up';
+                    document.getElementById("drop-content").style.display = "block";
                 }
             });
+
+            var monitor = setInterval(function()
+            {
+                var elem = document.activeElement;
+                if(elem && elem.tagName == 'IFRAME')
+                {
+                    document.getElementById("drop-content").style.display = "none";
+                }
+            });
+
+            var monitor1 = setInterval(function()
+            {
+                var elem1 = document.activeElement;
+                if(elem1 && elem1.tagName == 'IFRAME')
+                {
+                    document.getElementById("drop-content2").style.display = "none";
+                }
+            });
+
+            function makeVisible()
+            {
+                var x = document.getElementById("type-pass");
+                if (x.type === "password") 
+                {
+                    x.type = "text";
+                    document.getElementById("visible").innerHTML = "visibility";
+                } 
+                else 
+                {
+                    x.type = "password";
+                    document.getElementById("visible").innerHTML = "visibility_off";
+                }
+            }
         </script>
     </body>
 </html>

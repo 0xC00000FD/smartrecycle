@@ -3,7 +3,6 @@ body
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
-    background-image: url("leaves.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -17,35 +16,34 @@ body
     justify-content: center;
     align-items: center;
     align-content: center;
-    height: 280px;
-    width: 360px;
+    height: 350px;
+    width: 320px;
     border: 1px solid rgba(8, 212, 12, 0.4);
-    margin-top: 130px;
+    margin-top: 100px;
     border-radius: 10px;
-    grid-template-columns: 120px 150px;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 80px 150px;
+    grid-template-rows: auto auto auto auto auto auto auto;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-input:focus::placeholder
-{
-    color: transparent;
-}
-
-#pass, #user
+#email, #pass, #user, #country, #city
 {
     font-size: 12px;
     color: black;
     margin-right: 10px;
 }
 
-#user, #type-user, #pass, #type-pass
+#email, #type-email, #user, #type-user, #pass, #type-pass
 {
     margin-bottom: 10px;
-    align-self: center;
 }
 
-#type-pass, #type-user
+#city, #type-city
+{
+    margin-top: 10px;
+}
+
+#type-email, #type-pass, #type-user, #type-country, #type-city
 {
     font-size: 10px;
     padding: 5px;
@@ -66,19 +64,21 @@ input:focus::placeholder
 #acc
 {
     font-size: 12px;
-    margin-top: 30px;
-    grid-row: 7;
+    margin-top: 10px;
+    grid-row: 8;
     grid-column: 1/3;
-    margin-left: 40px;
+    margin-left: 44px;
+    margin-bottom: 10px;
 }
 
 #log
 {
     font-size: 12px;
-    margin-top: 30px;
-    grid-row: 7;
+    margin-top: 10px;
+    grid-row: 8;
     grid-column: 2/3;
-    margin-left: 61px;
+    margin-left: 65px;
+    margin-bottom: 10px;
 }
 
 #leaves
@@ -87,7 +87,7 @@ input:focus::placeholder
     margin-left: auto;
     margin-right: auto;
     height: 80px;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
 #W
@@ -106,14 +106,40 @@ input:focus::placeholder
     grid-row: 2;
 }
 
+#country
+{
+    grid-row: 5;
+}
+
+#city
+{
+    grid-row: 6;
+}
+
+#type-country, #type-city
+{
+    border: 0.1px solid rgba(0, 0, 0, 0.5);
+    color: grey;
+    font-weight: bolder;
+    font-size: 10px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+}
+
 #arrow1, #arrow2
 {
     font-size: 10px;
 }
 
+#type-country:hover, #type-city:hover
+{
+    cursor: pointer;
+}
+
 #next
 {
-    grid-row: 4;
+    grid-row: 7;
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     color: grey;
     font-size: 10px;
@@ -135,30 +161,47 @@ input:focus::placeholder
     cursor: pointer;
 }
 
-#acc
+#dropdown, #dorpdown2
 {
-    font-size: 12px;
-    margin-top: 10px;
-    grid-row: 8;
-    grid-column: 1/3;
-    margin-left: 50px;
-    margin-bottom: 10px;
+    position: sticky;
+    display: inline-block;
 }
 
-#log
+.dropdown-content, .dropdown-content2
 {
-    font-size: 12px;
-    margin-top: 10px;
-    grid-row: 8;
-    grid-column: 2/3;
-    margin-left: 60px;
-    margin-bottom: 10px;
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: white;
+    width: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100px;
 }
 
-#log:hover
+.dropdown-content div, .dropdown-content2 div
 {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-weight: bolder;
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+    color: grey;
+}
+
+.dropdown-content div:hover, .dropdown-content2 div:hover
+{
+    background-color: rgba(8, 212, 12, 0.1);
     cursor: pointer;
-    color: green;
+}
+
+input:focus::placeholder
+{
+    color: transparent;
 }
 
 #visible:hover
@@ -172,7 +215,7 @@ input:focus::placeholder
     font-size: 20px;
     position: absolute;
     overflow: hidden;
-    margin-left: 325px;
-    margin-top: 15px;
+    margin-bottom: 6px;
+    margin-left: 286px;
     color: grey;
 }

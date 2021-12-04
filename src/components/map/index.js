@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-const position = [51.505, -0.09]
+const position = [46.1857, 21.2968]
 export default class Map extends Component {
     constructor(props){
         super(props);

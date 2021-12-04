@@ -9,7 +9,8 @@ export default class DropDown extends Component {
         
         this.ref = React.createRef();
         this.state = {
-            display: "none"
+            display: "none",
+            isLogged: false
         }
     }
 
@@ -21,11 +22,33 @@ export default class DropDown extends Component {
         document.removeEventListener('click', this.handleClickOutside);
     }
 
-    changeState = () => {
-        if(this.state.display === 'block') {
-            this.setState({display: "none"});
+    isLog = () => {
+        try {
+            if(this.props.firebase.auth.currentUser !== null) {
+                return true;
+            }
+        } catch {
+            return false;
+        }
+    }
+
+    logOut = () => {
+        try {
+            this.props.firebase.doSignOut();
+            this.props.setState({isLogged: false});
+        } catch(err) {
+            alert(err.message);
+        }
+    }
+    handleClickOutside = (evt) => {
+        if(this.ref.current.contains(evt.target)) {
+            if(this.state.display === 'block') {
+                this.setState({display: "none", isLogged: this.isLog()});
+            } else {
+                this.setState({display: "block", isLogged: this.isLog()});
+            }
         } else {
-            this.setState({display: "block"});
+            this.setState({display: "none", isLogged: this.isLog()})
         }
     }
 
@@ -34,7 +57,7 @@ export default class DropDown extends Component {
             <div>
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
                 <div id="dropdown">
-                    <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.changeState()}> more_vert </span>
+                    <span className="material-icons-outlined" id="dropbtn" ref={this.ref}> more_vert </span>
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
                             <Link to={ROUTES.PROFILE}>
                                 <div id="box-profile"> 
@@ -51,19 +74,30 @@ export default class DropDown extends Component {
                                     Why recycle?
                                 </div>
                             </Link>
-                            <Link to={ROUTES.LOGIN}>
-                                <div id="box-login"> 
-                                    Login
-                                </div>
-                            </Link>
-                            <Link to={ROUTES.SIGNUP}>
-                                <div id="box-signup"> 
-                                    Signup
-                                </div>
-                            </Link>
-                            <div id="box-log-out"> 
-                                LogOut
-                            </div>
+                            {
+                                !this.state.isLogged && (
+                                    <>
+                                        <Link to={ROUTES.LOGIN}>
+                                            <div id="box-login"> 
+                                                Login
+                                            </div>
+                                        </Link>
+                                        <Link to={ROUTES.SIGNUP}>
+                                            <div id="box-signup"> 
+                                                Signup
+                                            </div>
+                                        </Link>
+                                    </>
+                                )
+                            }
+                            
+                            {
+                                this.state.isLogged && (
+                                    <div id="box-log-out" onClick={() => this.logOut()}> 
+                                        Log Out
+                                    </div>
+                                )
+                            }
                         </div>
                 </div>
             </div>

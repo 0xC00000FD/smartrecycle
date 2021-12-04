@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import styles from '../../css/signup.css'
+import '../../css/signup.css'
+import { FirebaseContext } from '../firebase';
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -14,11 +15,24 @@ export default class SignUp extends Component {
             x.type = "password";
         }
     }
+
+    async createAccount() {
+        let email = document.getElementById('type-email-signup').value;
+        let username = document.getElementById('type-user-signup').value;
+        let password = document.getElementById('type-pass-signup').value;
+
+        try {
+            await this.props.firebase.doCreateUser(email, username, password);
+            window.location.href = "/";
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
     render() {
         return (
-            <div>
+            <div className="signupbody">
                 <div id="login-grid-signup"> 
-                <div id="user"> Username </div>
+                <div id="user-signup"> Username </div>
                 <input type="text" placeholder="Type your username" id="type-user-signup" autoComplete="off" />
                 <div id="sitename-signup"> Smart<a id="W">R</a>ecycle </div>
                 <div id="email-signup"> Email </div>
@@ -27,7 +41,7 @@ export default class SignUp extends Component {
                 <input type="password" placeholder="Type your password" id="type-pass-signup" autoComplete="off"  />
                 <div id="acc-signup"> Have an account? </div>
                 <div id="log-signup"> Sign in </div>
-                <div id="next-signup"> Next </div>
+                <div id="next-signup" onClick = {() => this.createAccount()}> Next </div>
                 <span class="material-icons-outlined" id="visible-signup" onClick={() => this.makeVisible()}> visibility_off </span>
                 </div>
             </div>

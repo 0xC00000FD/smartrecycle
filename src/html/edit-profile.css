@@ -37,7 +37,7 @@ body
 
 #clear:hover
 {
-    color: rgba(27, 84, 23, 0.6);
+    color: rgb(44, 126, 168);
     cursor: pointer;
 }
 
@@ -123,7 +123,7 @@ body
 
 #change-img:hover
 {
-    color: green;
+    color: rgb(44, 126, 168);
 }
 
 input:focus::placeholder
@@ -152,7 +152,7 @@ input:focus::placeholder
 
 #done:hover
 {
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     color: white;
     transition-duration: 0.2s;
     cursor: pointer;

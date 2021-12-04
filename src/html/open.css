@@ -8,10 +8,10 @@ body
 #top-flex
 {
     display: flex;
-    height: 45px;
+    height: 50px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     color: white;
 }
 
@@ -24,7 +24,7 @@ body
 
 #dropbtn
 {
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 3px;
 }
 
@@ -35,8 +35,8 @@ body
 
 #frame
 {
-    height: 91.5vh;
-    width: 100vw;
+    height: 91vh;
+    width: 100%;
     border: none;
 }
 
@@ -98,4 +98,6 @@ body
 {
     cursor: pointer;
     background-color: white;
+    color: rgb(44, 126, 168);
+    font-weight: bolder;
 }

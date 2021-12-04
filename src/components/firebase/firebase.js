@@ -1,5 +1,6 @@
-import app from 'firebase/app'
-import 'firebase/auth';
+import firebase from 'firebase/compat/app'
+import "firebase/compat/auth"
+import "firebase/compat/database"
 
 const firebaseConfig = {
     apiKey:                 process.env.REACT_APP_API_KEY,
@@ -13,9 +14,18 @@ const firebaseConfig = {
 
 class Firebase {
     constructor() {
-        app.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
 
-        this.auth = app.auth();
+        this.auth = firebase.auth();
+        this.db = firebase.database();
+    }
+
+    test(){
+        let dbRef = this.db.ref();
+
+        dbRef.on('value', snapshot => {
+            console.log(snapshot.val());
+        })
     }
 
     doCreateUser = (email, password) => {

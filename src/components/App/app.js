@@ -5,8 +5,13 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import * as ROUTES from '../../constants/routes'
 import '../../css/open.css';
 import Map from '../map';
+import { FirebaseContext } from '../firebase';
 
 export default class App extends Component {
+    constructor(props){
+        super(props);
+    }
+    
     render() {
         return (
             <Router>

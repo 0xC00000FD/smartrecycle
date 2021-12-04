@@ -5,16 +5,13 @@
 import React, {Component} from 'react';
 import '../../css/open.css';
 import DropDown from '../dropdown/dropdown'
+import Leaves from '../../images/recycle.png'
 
 export default class NavBar extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div id="top-flex">
-                <img src="../images/recycle.png" id="icon" alt="logo"/>
+                <img src={Leaves} id="icon" alt="logo"/>
                 <DropDown />
             </div>
         )

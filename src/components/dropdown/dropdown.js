@@ -11,8 +11,6 @@ export default class DropDown extends Component {
         this.state = {
             dropDownHidden: true
         }
-
-        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -30,16 +28,15 @@ export default class DropDown extends Component {
             }
         }
     }
-    
-    handleClick = () => {
-        let value = !this.state.dropDownHidden;
-        this.setState({dropDownHidden: !value});
-    }
 
     render() {
         return (
             <div id="dropdown">
-                <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => this.handleClick()}> more_vert </span>
+                <span className="material-icons-outlined" id="dropbtn" ref={this.ref} onClick={() => {
+                    console.log(1);
+                    let value = !this.state.dropDownHidden;
+                    this.setState({dropDownHidden: !value});
+                }}> more_vert </span>
                 {
                     !this.state.dropDownHidden && (
                         <div className="dropdown-content" id="drop-content">

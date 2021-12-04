@@ -9,13 +9,13 @@ body
 {
     position: absolute;
     z-index:1;
-    justify-content:space-between;
     width:100%;
     display: flex;
+    justify-content:space-between;
     height: 40px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(8, 212, 11, 0);
+    background-color: rgba(119, 253, 121, 0.75);
 }
 
 #site-name

@@ -5,7 +5,7 @@ export default class Profile extends Component {
 
     render() {
         return(
-            <div id="grid-profile">
+            <div id="profilebody">
                 <div id="grid-profile">
                 <div id="edit-profile" > Edit profile </div>
             </div>

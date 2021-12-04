@@ -3,7 +3,7 @@
             <div id="site-name"> SmartRecycle </div>
         </div>*/
 import React, {Component} from 'react';
-import '../../css/open.css';
+import '../../css/open.module.css';
 import DropDown from '../dropdown/dropdown'
 import Leaves from '../../images/recycle.png'
 

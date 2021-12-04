@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import NavBar from '../navbar/navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import * as ROUTES from '../../constants/routes'
-import '../../css/open.css';
+import styles from '../../css/open.module.css';
 import Map from '../map';
 import { FirebaseContext } from '../firebase';
+import SignUp from '../SignUp/signup';
 
 export default class App extends Component {
     constructor(props){
@@ -14,13 +15,16 @@ export default class App extends Component {
     
     render() {
         return (
-            <Router>
-                <NavBar />
+            <div className={styles}>
+                <Router>
+                    <NavBar className/>
 
-                <Routes>
-                    <Route exact path={ROUTES.MAP} element={<Map />} />
-                </Routes>
-            </Router>
+                    <Routes>
+                        <Route exact path={ROUTES.MAP} element={<Map />} />
+                        <Route path={ROUTES.SIGNUP} element={<SignUp />} />
+                    </Routes>
+                </Router>
+            </div>
         );
     }
 }

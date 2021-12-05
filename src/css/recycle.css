@@ -1,8 +1,8 @@
 .recyclebody
 {
-    position:absolute;
+    position: absolute;
     font-family: 'Open Sans', sans-serif;
-    background-image: url("../images/leaves.jpg");
+    background-image: url("../images/back1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
@@ -12,7 +12,7 @@
 
 #top-title-recycle
 {
-    color: aliceblue;
+    color: #daeeff;
     font-weight: bold;
     font-size: larger;
     text-size-adjust: 100px;
@@ -22,7 +22,7 @@
 
 #sub-title-recycle
 {
-    color: aliceblue;
+    color: #daeeff;
     text-size-adjust: 100px;
     text-align: center;
     margin-top: 20px;;

@@ -9,6 +9,7 @@ import Recycle from '../Recycle/recycle';
 import Firebase, { FirebaseContext } from '../firebase';
 import SignUp from '../SignUp/signup';
 import Login from '../login/login';
+import Discounts from '../discounts/discounts';
 
 export default class App extends Component {
     constructor(props){
@@ -30,6 +31,7 @@ export default class App extends Component {
                                     <NavBar firebase={firebase}/>
 
                                     <Routes>
+                                        <Route path={ROUTES.DISCOUNTS} element={<Discounts />} />
                                         <Route exact path={ROUTES.MAP} element={<Map firebase={firebase}/>} />
                                         <Route path={ROUTES.RECYCLE} element={<Recycle />} />
                                         <Route path={ROUTES.SIGNUP} element={<SignUp firebase={firebase}/>} />

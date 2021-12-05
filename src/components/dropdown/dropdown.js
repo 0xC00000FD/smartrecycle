@@ -28,14 +28,18 @@ export default class DropDown extends Component {
     isLog = () => {
         try {
             if(this.props.firebase.auth.currentUser !== null) {
-                let uid = this.props.firebase.auth.currentUser.uid;
-                let tokenRef = ref(this.props.firebase.database, `Users/${uid}`);
-                onValue(tokenRef, (snapshot) => {
-                    const data = snapshot.val();
-                    this.tokens = data.tokens;
-                }, {
-                    onlyOnce: true
-                });
+                try{
+                    let uid = this.props.firebase.auth.currentUser.uid;
+                    let tokenRef = ref(this.props.firebase.database, `Users/${uid}`);
+                    onValue(tokenRef, (snapshot) => {
+                        const data = snapshot.val();
+                        this.tokens = data.tokens;
+                    }, {
+                        onlyOnce: true
+                    });
+                } catch {
+
+                }
                 return true;
             }
         } catch {

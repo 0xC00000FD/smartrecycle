@@ -40,12 +40,13 @@ class Firebase {
             updateProfile(this.auth.currentUser, {
                 displayName: userName,
             })
-            push(ref(this.database, "Users/"), {
-                [user.uid]: {   
-                    tokens: 0,
-                    permissions: 0    
-                }
-            }) 
+            
+            set(ref(this.database, 'Users/'+user.uid), {
+                username: userName,
+                tokens: 0,
+                permissions: 0
+            })
+            
         } catch(evt) {
             console.log(evt.message);
         }

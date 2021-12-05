@@ -79,21 +79,20 @@ export default class DropDown extends Component {
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
                             {
                                 this.isLog() && (
-                                    <div id="profile-container">
-                                        <div id="name-clouds">
-                                            <div id="homie-name">{this.props.firebase.auth.currentUser.displayName}</div>
-                                            <div id="clouds">{this.tokens}</div>
-                                            <span class="material-icons"> filter_drama </span>
-                                        </div>
+                                    <div>
+                                        <div id="homie-name"> @{this.props.firebase.auth.currentUser.displayName}</div>
                                     </div>
                                 )
                             }
-                            <Link to={ROUTES.MAP}>
+                            <Link to={ROUTES.DISCOUNTS} className="txt">
+                                <div id="box-tokens"> Tokens </div>
+                            </Link>
+                            <Link to={ROUTES.MAP} className="txt">
                                 <div id="box-map"> 
                                     Map
                                 </div>
                             </Link>
-                            <Link to={ROUTES.RECYCLE}>
+                            <Link to={ROUTES.RECYCLE} className="txt">
                                 <div id="box-recycle"> 
                                     Why recycle?
                                 </div>
@@ -101,12 +100,12 @@ export default class DropDown extends Component {
                             {
                                 !this.state.isLogged && (
                                     <>
-                                        <Link to={ROUTES.LOGIN}>
+                                        <Link to={ROUTES.LOGIN} className="txt">
                                             <div id="box-login"> 
                                                 Login
                                             </div>
                                         </Link>
-                                        <Link to={ROUTES.SIGNUP}>
+                                        <Link to={ROUTES.SIGNUP} className="txt">
                                             <div id="box-signup"> 
                                                 Signup
                                             </div>

@@ -4,46 +4,13 @@
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
 }
-
-#profile-container
-{
-    padding: 0;
-    display: flex;
-}
 #homie-name
 {
-    padding: 0px;
-    margin: 12px;
-    text-align: center;
-    width: 126px;
-    height: 24px;
     display: inline-block;
-    position:absolute
-}
-.material-icons
-{
-    grid-row: 2;
-    display: inline-block;
-    padding: 0px;
-    margin-top: 48px;
-    position:relative;
-    float: right;
-    
-}
-#clouds
-{
-    grid-row: 2;
-    display: inline-block;
-    padding: 0px;
-    margin: 12px;
-    position:relative;
-    text-align: center;
-    margin-top: 48px;
-    height: 24px;
-}
-#name-clouds
-{
-    padding: 0;
+    margin-bottom: -70px;
+    margin-left: -16px;
+    width: 100%;
+    margin-top: -11px;
 }
 
 #top-flex
@@ -106,6 +73,12 @@
 {
     position: relative;
     display: inline-block;
+    margin-top: 2px;
+}
+
+.txt
+{
+    text-decoration: none;
 }
 
 .dropdown-content
@@ -144,7 +117,7 @@
     font-size: 15px;
 }
 
-#box-profile:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover, #homie-name:hover
+#box-profile:hover, #box-tokens:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover, #homie-name:hover, #box-login:hover, #box-signup:hover, .tokens:hover
 {
     cursor: pointer;
     background-color: white;

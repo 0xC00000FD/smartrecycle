@@ -24,6 +24,7 @@ export default class SignUp extends Component {
         try {
             await this.props.firebase.doCreateUser(email, username, password);
             window.location.href = "/";
+            await new Promise(resolve => setTimeout(resolve, 2000));
         } catch (error) {
             console.log(error.message);
         }
@@ -42,7 +43,7 @@ export default class SignUp extends Component {
                     <div id="pass-signup"> Password </div>
                     <input type="password" placeholder="Type your password" id="type-pass-signup" autoComplete="off"  />
                     <div id="acc-signup"> Have an account? </div>
-                    <div id="log-signup"> Sign in </div>
+                    <div id="log-signup" onClick={() => window.location.href = '/login'}> Sign in </div>
                     <div id="next-signup" onClick = {() => this.createAccount()}> Next </div>
                     <span class="material-icons-outlined" id="visible-signup" onClick={() => this.makeVisible()}> visibility_off </span>
                     </div>

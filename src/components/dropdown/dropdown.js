@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
 import '../../css/open.css';
+import { ref, onValue } from "firebase/database";
+
 
 export default class DropDown extends Component {
     constructor(props) {
         super(props);
         
         this.ref = React.createRef();
+        this.tokens = 0;
         this.state = {
             display: "none",
-            isLogged: false
+            isLogged: false,
         }
     }
 
@@ -25,6 +28,14 @@ export default class DropDown extends Component {
     isLog = () => {
         try {
             if(this.props.firebase.auth.currentUser !== null) {
+                let uid = this.props.firebase.auth.currentUser.uid;
+                let tokenRef = ref(this.props.firebase.database, `Users/${uid}`);
+                onValue(tokenRef, (snapshot) => {
+                    const data = snapshot.val();
+                    this.tokens = data.tokens;
+                }, {
+                    onlyOnce: true
+                });
                 return true;
             }
         } catch {
@@ -35,7 +46,6 @@ export default class DropDown extends Component {
     logOut = () => {
         try {
             this.props.firebase.doSignOut();
-            this.props.setState({isLogged: false});
         } catch(err) {
             alert(err.message);
         }
@@ -67,7 +77,8 @@ export default class DropDown extends Component {
                                         </div>
                                         <div className="name-clouds">
                                             <p>{this.props.firebase.auth.currentUser.displayName}</p>
-                                            <img></img>
+                                            <span class="material-icons"> filter_drama </span>
+                                            <p>{this.tokens}</p>
                                         </div>
                                     </div>
                                 )

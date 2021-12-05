@@ -1,12 +1,13 @@
 .signupbody
 {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+    position: absolute;
     font-family: 'Open Sans', sans-serif;
     background-image: url("../images/back1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    height:100%;
+    width:100%;
 }
 
 #login-grid-signup

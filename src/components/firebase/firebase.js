@@ -9,6 +9,7 @@ import { getAuth,
 } from "firebase/auth";
 import { getDatabase,
          ref, set, get,
+         child, push
 } from "firebase/database";
 
 const firebaseConfig = {
@@ -39,7 +40,7 @@ class Firebase {
             updateProfile(this.auth.currentUser, {
                 displayName: userName,
             })
-            set(ref(this.database, "Users/"), {
+            push(ref(this.database, "Users/"), {
                 [user.uid]: {   
                     tokens: 0,
                     permissions: 0    

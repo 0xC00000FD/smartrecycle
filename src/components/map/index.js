@@ -1,14 +1,41 @@
 import React, {Component} from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import EventComponent from './event';
+import {set, push, ref, onValue} from 'firebase/database'
+import { uploadBytes, getDownloadURL, ref as bucketref } from '@firebase/storage';
+import L from 'leaflet';
+import marker from '../../images/R.svg'
 
+const iconPerson = new L.Icon({
+    iconUrl: marker,
+    iconRetinaUrl: marker,
+    iconSize: new L.Point(36, 36),
+    className: 'leaflet-div-icon'
+});
 const position = [46.1857, 21.2968]
 export default class Map extends Component {
     constructor(props){
         super(props);
+
+        this.options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        }
+
+        this.location = {
+            long: null,
+            lat: null
+        }   
+
+        this.markersArray = []; 
+
         this.state = {
             height: 0,
             width: 0,
-            zoom: 15
+            zoom: 15,
+            popupHidden: true,
+            markers: []
         };
     }
 
@@ -17,24 +44,116 @@ export default class Map extends Component {
         this.setState({height: height})
     }
 
+    componentDidMount() {
+        this.geolocation();
+
+        const Ref = ref(this.props.firebase.databaseMarkers);
+        onValue(Ref, (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                const childKey = childSnapshot.key;
+                const childData = childSnapshot.val();
+
+                this.markersArray.push({
+                    lat: childData.lat,
+                    long: childData.long,
+                    description: childData.description
+                })
+            });
+        });
+
+        //this.setState({markers: this.markersArray});
+        console.log(this.markersArray)
+    }
+    
     componentWillMount() {
         this.updateDimensions();
     }
 
+    successLocalization = (pos) => {
+        console.log(pos.coords.latitude)
+
+        this.location.long = pos.coords.longitude;
+        this.location.lat = pos.coords.latitude;
+    }
+
+    errorLocalization = (pos) => {
+        console.warn(pos.coords);
+    }
+
+    geolocation = () => {
+        navigator.geolocation.getCurrentPosition(this.successLocalization, this.errorLocalization, this.options);
+    }
+
+    popup = () => {
+        console.log(this.state.markers)
+        this.setState({popupHidden: !this.state.popupHidden});
+    }
+
+    sendForm = async () => {
+        this.geolocation();
+        const description = document.getElementById('text-rep').value;
+        const reference = ref(this.props.firebase.databaseMarkers);
+        const elem = document.getElementById('img-file');
+        const file = elem.files[0]
+        const blob = file.slice(0, file.size, 'image/png');
+        const name = `${this.location.long}_${this.location.lat}.jpg`;
+        let newFile = new File([blob], name);
+        const storageRef = bucketref(this.props.firebase.storageBucket, `images/${name}`);
+
+        set(push(reference), {
+            long: this.location.long,
+            lat: this.location.lat,
+            description: description
+        })
+
+        uploadBytes(storageRef, newFile).then((snapshot) => {
+            console.log("File Uploaded");
+        })
+
+        this.popup();
+    }
+
+    /*markerPopup = (idx) => {
+        let fileName = `${this.markersArray[idx].long}_${this.markersArray[idx].lat}.jpg`;
+        getDownloadURL(bucketref(this.props.firebase.storageBucket, fileName)).then((url) => document.getElementsByClassName("marker-image")[idx].src = url);
+    }*/
+
     render() {
         return (
             <>    
+                <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"></link>
-                <MapContainer center={position} zoom={this.state.zoom} scrollWheelZoom={true} style={{height: this.state.height}}>
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+                <MapContainer center={position} zoom={this.state.zoom} scrollWheelZoom={true} style={{height: this.state.height}} onClick={this.HandleClick}>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={position}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                    </Marker>
+                    {
+                        this.markersArray.map((marker, idx) => {
+                            let locationArray = [marker.long, marker.lat];
+                            return(
+                                <Marker icon={iconPerson} location={locationArray} className={"Marker"} key={idx}>
+                                    <Popup>
+                                        <p>{marker.description}</p>
+                                    </Popup>
+                                </Marker>
+                            );
+                        })
+                    }
+                    <span class="material-icons-outlined" id="location" onClick={() => this.popup()}>near_me</span>
+                    {
+                        !this.state.popupHidden && (
+                                <div id="report-grid">
+                                    <div id="rep-name"><b>Repo<a style={{color: "rgb(44, 126, 168)"}}>r</a>t</b></div>
+                                    <div id="rep"> Write a comment... </div>
+                                    <textarea name="report-type-text" id="text-rep" cols="5" rows="5"></textarea>
+                                    <div id="img-rep"> Report evidence : </div>
+                                    <input type="file" accept="image/*" id="img-file" onChange={(evt) => this.file = evt.target.files[0]}/>
+                                    <div id="submit-button" onClick={() => this.sendForm()}> Submit </div>
+                                </div>
+                        )
+                    }
                 </MapContainer>
             </>
         );

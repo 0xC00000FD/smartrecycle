@@ -1,0 +1,53 @@
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(44, 126, 168, 0.6);
+}
+
+#logo-grid
+{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    justify-content: space-evenly;
+    row-gap: 50px;
+}
+
+#logo
+{
+    height: 150px;
+    margin-left: 25px;
+    border-radius: 50%;
+}
+
+#logo:hover, #txt:hover
+{
+    cursor: pointer;
+}
+
+#txt
+{
+    text-align: center;
+    color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#disc
+{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#cnt
+{
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}

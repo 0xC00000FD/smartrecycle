@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="discount.css">
+        <title> OurWorld </title>
+    </head>
+
+    <body>
+        <div id="disc"> - DISCOUNTS - </div>
+        <div id="cnt"> YOUR TOKENS : 0 </div> 
+        <div id="logo-grid">
+
+        </div>
+
+        <script>
+            var l = 1, c = 1;
+
+            const Discounts = [ {src:"MC-logo.png", name:"McDonald's", dis:"50", tokens:"50"},
+                                {src:"Footshop-logo.png", name:"Footshop", dis:"10", tokens:"100"},
+                                {src:"ABOUTYOU-logo.png", name:"ABOUTYOU", dis:"10", tokens:"100"},
+                                {src:"KFC-logo.jpg", name:"KFC", dis:"50", tokens:"50"},
+                                {src:"Starbucks-logo.png", name:"Starbucks", dis:"10", tokens:"100"},
+                                {src:"FashionDays-logo.png", name:"Fashion Days", dis:"10", tokens:"100"},
+                                {src:"Glovo-logo.png", name:"Glovo", dis:"10", tokens:"100"},
+                                {src:"Bolt-logo.png", name:"Bolt", dis:"10", tokens:"100"},
+                                {src:"Zara-logo.jfif", name:"ZARA", dis:"10", tokens:"100"},
+                                {src:"Tazz-logo.jpg", name:"TAZZ", dis:"10", tokens:"100"},
+                                {src:"SneakerIndustry-logo.jpg", name:"Sneaker Industry", dis:"10", tokens:"100"},
+                                {src:"Altex-logo.jpg", name:"Altex", dis:"10", tokens:"100"} ];
+
+            for (let i = 0; i < Discounts.length; i++)
+            {
+                var Main = document.createElement("div");
+                Main.id = Discounts[i].name;
+                document.getElementById("logo-grid").appendChild(Main);
+
+                var image = document.createElement("img");
+                image.src = Discounts[i].src;
+                image.id = "logo";
+                document.getElementById(Discounts[i].name).appendChild(image);
+
+                var tag = document.createElement("div");
+                var text1 = document.createTextNode(Discounts[i].name + " - " + Discounts[i].dis + "%");
+                var text2 = document.createTextNode("( " + Discounts[i].tokens + " TOKENS" + " )");
+                var textBtw = document.createElement("br");
+                tag.id = "txt";
+                tag.appendChild(text1);
+                tag.appendChild(textBtw);
+                tag.appendChild(text2);
+                document.getElementById(Discounts[i].name).appendChild(tag);
+
+                l++;
+                if (l > 4) 
+                {
+                    l = 1;
+                    c++;
+                }
+            }
+        </script>
+    </body>
+</html>

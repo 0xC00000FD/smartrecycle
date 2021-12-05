@@ -7,12 +7,14 @@ export default class SignUp extends Component {
         super(props);
     }
     
-    makeVisible() {
+    makeVisible = () => {
         var x = document.getElementById("type-pass-signup");
         if (x.type === "password") {
             x.type = "text";
+            document.getElementById('visible-signup').innerHTML = "visibility_on";
         } else {
             x.type = "password";
+            document.getElementById('visible-signup').innerHTML = "visibility_off";
         }
     }
 

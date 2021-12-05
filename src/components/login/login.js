@@ -16,8 +16,10 @@ export default class Login extends Component {
 
         if (x.type === "password") {
             x.type = "text";
+            document.getElementById("visible-login").innerHTML = "visibility_on";
         } else {
             x.type = "password";
+            document.getElementById("visible-login").innerHTML = "visibility_off";
         }
 
     }

@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title> Report </title>
+    <link rel="stylesheet" href="harta.css">
 </head>
 <body>
-    <div> harta </div>
+    <div id="contentContainer">
+        <span class="material-icons-outlined" id="add_button" onclick="darkMap()"> add_circle_outline </span>
+        <div id="report-grid">
+            <div id="rep-name"><b>Repo<a style="color: rgb(44, 126, 168);">r</a>t</div></b>
+            <div id="rep"> Write a comment... </div>
+            <textarea name="report-type-text" id="text-rep" cols="5" rows="5"> </textarea>
+            <div id="img-rep"> Report evidence : </div>
+            <input type="file" accept="image/*" id="img-file">
+            <div id="submit-button"> Submit </div>
+            <span class="material-icons-outlined" id="loc-pin"> location_on </span>
+        </div>
+    </div>
+    <script>
+        function alertF()
+        {
+            alert("Thank you for your report! We'll take care of it.");
+        }
+    </script>
 </body>
+<script src="pop_rep.js"> </script>
 </html>

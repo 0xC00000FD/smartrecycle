@@ -10,16 +10,16 @@
     margin-bottom: -70px;
     margin-left: -16px;
     width: 100%;
-    margin-top: -11px;
+    margin-top: -13px;
 }
 
 #top-flex
 {
     display: flex;
-    height: 40px;
+    height: 50px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168);
     color: white;
 }
 
@@ -28,6 +28,8 @@
     font-size: 15px;
     margin-right: 800px;
     font-weight: bolder;
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 #dropbtn
@@ -90,7 +92,7 @@
     margin-top: 8px;
     margin-left: -65px;
     width: 150px;
-    background-color: rgba(27, 84, 23, 0.6);
+    background-color: rgb(44, 126, 168, 0.6);
 }
 
 .dropdown-content div 
@@ -120,7 +122,8 @@
 #box-profile:hover, #box-tokens:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover, #homie-name:hover, #box-login:hover, #box-signup:hover, .tokens:hover
 {
     cursor: pointer;
-    background-color: white;
+    background-color: rgb(44, 126, 168, 0.4);
+    color: whitesmoke;
 }
 
 #report-grid

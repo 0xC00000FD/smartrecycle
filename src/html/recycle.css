@@ -1,0 +1,84 @@
+body
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("back1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#top-title
+{
+    color: aliceblue;
+    font-weight: bold;
+    font-size: larger;
+    text-size-adjust: 100px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#sub-title
+{
+    color: aliceblue;
+    text-size-adjust: 100px;
+    text-align: center;
+    margin-top: 20px;;
+    margin-bottom: 100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#txt1, #pic2, #txt3
+{
+    align-self: center;
+    text-align: center;
+    grid-column: 1;
+}
+
+#txt2, #pic1, #pic3
+{
+    align-self: center;
+    text-align: center;
+    grid-column: 2;
+}
+
+#txt1, #pic1
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 1;
+}
+
+#txt2, #pic2
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 2;
+}
+
+#txt2, #pic2
+{
+    align-self: center;
+    text-align: center;
+    grid-row: 2;
+}
+
+#txt1, #txt2, #txt3
+{
+    padding: 3px;
+    border: 2px solid rgb(21, 170, 170);
+    border-radius: 20px;
+    background-color: aliceblue;
+    visibility: hidden;
+}
+
+#frame
+{ 
+    font-size: smaller;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    width: 600px;
+}

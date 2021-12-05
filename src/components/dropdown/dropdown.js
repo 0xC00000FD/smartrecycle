@@ -75,14 +75,11 @@ export default class DropDown extends Component {
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
                             {
                                 this.isLog() && (
-                                    <div className="profile-container">
-                                        <div className="profile-pic">
-                                            <img alt=""/>
-                                        </div>
-                                        <div className="name-clouds">
-                                            <p>{this.props.firebase.auth.currentUser.displayName}</p>
+                                    <div id="profile-container">
+                                        <div id="name-clouds">
+                                            <div id="homie-name">{this.props.firebase.auth.currentUser.displayName}</div>
+                                            <div id="clouds">{this.tokens}</div>
                                             <span class="material-icons"> filter_drama </span>
-                                            <p>{this.tokens}</p>
                                         </div>
                                     </div>
                                 )

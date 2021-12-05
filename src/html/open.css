@@ -4,7 +4,10 @@ body
     padding: 0 0 0 0;
     font-family: 'Open Sans', sans-serif;
 }
-
+#profile-container
+{
+    padding: 0;
+}
 #top-flex
 {
     display: flex;

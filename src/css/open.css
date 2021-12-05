@@ -5,6 +5,47 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+#profile-container
+{
+    padding: 0;
+    display: flex;
+}
+#homie-name
+{
+    padding: 0px;
+    margin: 12px;
+    text-align: center;
+    width: 126px;
+    height: 24px;
+    display: inline-block;
+    position:absolute
+}
+.material-icons
+{
+    grid-row: 2;
+    display: inline-block;
+    padding: 0px;
+    margin-top: 48px;
+    position:relative;
+    float: right;
+    
+}
+#clouds
+{
+    grid-row: 2;
+    display: inline-block;
+    padding: 0px;
+    margin: 12px;
+    position:relative;
+    text-align: center;
+    margin-top: 48px;
+    height: 24px;
+}
+#name-clouds
+{
+    padding: 0;
+}
+
 #top-flex
 {
     display: flex;
@@ -95,7 +136,7 @@
     font-size: 15px;
 }
 
-#box-profile:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover
+#box-profile:hover, #box-map:hover, #box-log-out:hover, #box-recycle:hover, #homie-name:hover
 {
     cursor: pointer;
     background-color: white;

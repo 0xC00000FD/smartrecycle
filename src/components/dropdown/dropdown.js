@@ -32,13 +32,17 @@ export default class DropDown extends Component {
                     let uid = this.props.firebase.auth.currentUser.uid;
                     let tokenRef = ref(this.props.firebase.database, `Users/${uid}`);
                     onValue(tokenRef, (snapshot) => {
-                        const data = snapshot.val();
-                        this.tokens = data.tokens;
+                        try{
+                            const data = snapshot.val();
+                            this.tokens = data.tokens;
+                        } catch {
+                            
+                        }
                     }, {
                         onlyOnce: true
                     });
-                } catch {
-
+                } catch(error) {
+                    console.log(error.message);
                 }
                 return true;
             }

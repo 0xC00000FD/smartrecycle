@@ -11,8 +11,9 @@ import { getDatabase,
          ref, set, get,
          child, push
 } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
-const firebaseConfig = {
+const firebaseClientConfig = {
     apiKey:                 process.env.REACT_APP_API_KEY,
     authDomain:             process.env.REACT_APP_AUTH_DOMAIN,
     projectId:              process.env.REACT_APP_PROJECT_ID,
@@ -23,12 +24,26 @@ const firebaseConfig = {
     measurementId:          process.env.REACT_APP_MEASUREMENT_ID,
 };
 
+const firebaseMarkerConfig = {
+    apiKey:                 process.env.REACT_APP_API_KEY_M,
+    authDomain:             process.env.REACT_APP_AUTH_DOMAIN_M,
+    projectId:              process.env.REACT_APP_PROJECT_ID_M,
+    databaseURL:            process.env.REACT_APP_DATABASE_URL_M,
+    storageBucket:          process.env.REACT_APP_STORAGE_BUCKET_M,
+    messagingSenderId:      process.env.REACT_APP_MESSAGING_SENDER_ID_M,
+    appId:                  process.env.REACT_APP_APP_ID_M,
+    measurementId:          process.env.REACT_APP_MEASUREMENT_ID_M,
+};
+
 class Firebase {
     constructor() {
-        const app = initializeApp(firebaseConfig);
+        const app = initializeApp(firebaseClientConfig);
+        const markers = initializeApp(firebaseMarkerConfig, "Secondary");
 
         this.auth = getAuth(app);
         this.database = getDatabase(app);
+        this.databaseMarkers = getDatabase(markers, 'https://smartreact-markers-default-rtdb.europe-west1.firebasedatabase.app/');
+        this.storageBucket = getStorage(markers);
     }
 
     doCreateUser = async (userEmail, userName, passWord) => {

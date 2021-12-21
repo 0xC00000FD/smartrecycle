@@ -4,7 +4,7 @@ import NavBar from '../navbar/navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import * as ROUTES from '../../constants/routes'
 import styles from '../../css/open.css';
-import Map from '../map';
+import Map from '../map/mapFunctional';
 import Recycle from '../Recycle/recycle';
 import Firebase, { FirebaseContext } from '../firebase';
 import SignUp from '../SignUp/signup';

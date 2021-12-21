@@ -1,17 +1,8 @@
 import React, {Component} from 'react';
 import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
-import EventComponent from './event';
 import {set, push, ref, onValue} from 'firebase/database'
 import { uploadBytes, getDownloadURL, ref as bucketref } from '@firebase/storage';
-import L from 'leaflet';
-import marker from '../../images/R.svg'
 
-const iconPerson = new L.Icon({
-    iconUrl: marker,
-    iconRetinaUrl: marker,
-    iconSize: new L.Point(36, 36),
-    className: 'leaflet-div-icon'
-});
 const position = [46.1857, 21.2968]
 export default class Map extends Component {
     constructor(props){
@@ -59,10 +50,11 @@ export default class Map extends Component {
                     description: childData.description
                 })
             });
+
+            this.setState({markers: this.markersArray});
         });
 
-        //this.setState({markers: this.markersArray});
-        console.log(this.markersArray)
+        console.log(this.state.markers);
     }
     
     componentWillMount() {
@@ -76,12 +68,12 @@ export default class Map extends Component {
         this.location.lat = pos.coords.latitude;
     }
 
-    errorLocalization = (pos) => {
-        console.warn(pos.coords);
-    }
-
     geolocation = () => {
-        navigator.geolocation.getCurrentPosition(this.successLocalization, this.errorLocalization, this.options);
+        try{
+            navigator.geolocation.getCurrentPosition(this.successLocalization, this.errorLocalization, this.options);
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     popup = () => {
@@ -113,10 +105,12 @@ export default class Map extends Component {
         this.popup();
     }
 
-    /*markerPopup = (idx) => {
-        let fileName = `${this.markersArray[idx].long}_${this.markersArray[idx].lat}.jpg`;
-        getDownloadURL(bucketref(this.props.firebase.storageBucket, fileName)).then((url) => document.getElementsByClassName("marker-image")[idx].src = url);
-    }*/
+    markerPopup = (marker) => {
+        let fileName = `${marker.long}_${marker.lat}.jpg`;
+        let storageRef = bucketref(this.props.firebase.storageBucket, 'images');
+        console.log(getDownloadURL(bucketref(storageRef, fileName)))
+        return getDownloadURL(bucketref(storageRef, fileName));
+    }
 
     render() {
         return (
@@ -124,18 +118,20 @@ export default class Map extends Component {
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-                <MapContainer center={position} zoom={this.state.zoom} scrollWheelZoom={true} style={{height: this.state.height}} onClick={this.HandleClick}>
+                <MapContainer center={position} zoom={this.state.zoom} scrollWheelZoom={true} style={{height: this.state.height}}>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {
-                        this.markersArray.map((marker, idx) => {
+                        this.state.markers.map((marker, idx) => {
                             let locationArray = [marker.long, marker.lat];
                             return(
-                                <Marker icon={iconPerson} location={locationArray} className={"Marker"} key={idx}>
+                                <Marker location={locationArray} className={"Marker"} key={idx}>
                                     <Popup>
                                         <p>{marker.description}</p>
+                                        {console.log(marker)}
+                                        {this.markerPopup(marker).then((url) => <img src={url} />)}
                                     </Popup>
                                 </Marker>
                             );

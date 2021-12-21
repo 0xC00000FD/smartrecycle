@@ -10,10 +10,12 @@ export default class NavBar extends Component {
         return (
             <div>
                 <div id="top-flex">
-                    <img src={Leaves} id="icon" alt="logo"/>
-                    <Link to={ROUTES.MAP} style={{"textDecoration": "none"}}>
-                        <div id="site-name" style={{"textDecoration": "none"}}>SmartRecycle</div>
-                    </Link>
+                    <div className="logo">
+                        <img src={Leaves} id="icon" alt="logo"/>
+                        <Link to={ROUTES.MAP} style={{"textDecoration": "none"}}>
+                            <div id="site-name" style={{"textDecoration": "none"}}>SmartRecycle</div>
+                        </Link>
+                    </div>
                     <DropDown firebase={this.props.firebase}/>
                 </div>
             </div>

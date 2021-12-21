@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
 import '../../css/open.css';
-import { ref, onValue } from "firebase/database";
+import { get, child, ref, onValue } from "firebase/database";
 
 
 export default class DropDown extends Component {
@@ -11,6 +11,7 @@ export default class DropDown extends Component {
         
         this.ref = React.createRef();
         this.tokens = 0;
+        this.username = "";
         this.state = {
             display: "none",
             isLogged: false,
@@ -35,6 +36,7 @@ export default class DropDown extends Component {
                         try{
                             const data = snapshot.val();
                             this.tokens = data.tokens;
+                            this.username = data.userName;
                         } catch {
                             
                         }
@@ -58,6 +60,7 @@ export default class DropDown extends Component {
             alert(err.message);
         }
     }
+    
     handleClickOutside = (evt) => {
         if(this.ref.current.contains(evt.target)) {
             if(this.state.display === 'block') {
@@ -70,6 +73,11 @@ export default class DropDown extends Component {
         }
     }
 
+    retrieveUsername = () => {
+        let uid = this.props.firebase.auth.currentUser.uid;
+        let userRef = child(ref(this.props.firebase.database), `Users/${uid}`);
+        return get(userRef);
+    }
     render() {
         return (
             <div>
@@ -78,15 +86,14 @@ export default class DropDown extends Component {
                     <span className="material-icons-outlined" id="dropbtn" ref={this.ref}> more_vert </span>
                         <div className="dropdown-content" id="drop-content" style={{"display": this.state.display}}>
                             {
-                                this.isLog() && (
-                                    <div>
-                                        <div id="homie-name"> @{this.props.firebase.auth.currentUser.displayName}</div>
-                                    </div>
-                                )
+                                this.retrieveUsername().then((data) => {
+                                    this.isLog() && (
+                                        <div>
+                                            <div id="homie-name"> @{console.log(data.val())}</div>
+                                        </div>
+                                    )
+                                })
                             }
-                            <Link to={ROUTES.DISCOUNTS} className="txt">
-                                <div id="box-tokens"> Tokens </div>
-                            </Link>
                             <Link to={ROUTES.MAP} className="txt">
                                 <div id="box-map"> 
                                     Map

@@ -13,20 +13,27 @@
     margin-top: -13px;
 }
 
+.logo
+{
+    display:flex;
+    align-items: center;
+}
 #top-flex
 {
     display: flex;
     height: 50px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgb(44, 126, 168);
+    background-color: rgb(80, 92, 109);
     color: white;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
 }
 
 #site-name
 {
     font-size: 15px;
-    margin-right: 800px;
     font-weight: bolder;
     text-decoration: none;
     color: whitesmoke;
@@ -131,7 +138,7 @@
     display: grid;
     position: absolute;
     align-self: center;
-    height: 270px;
+    height: 300px;
     width: 400px;
     top: 0;
     bottom: 0;
@@ -188,7 +195,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     border: 0.1px solid rgba(0, 0, 0, 0.5);
     text-align: center;
     font-size: 15px;
